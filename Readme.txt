@@ -1,4 +1,3 @@
-﻿Morbiwala #F31111
-
-
-SafesWord: #DB4A10
+Modtech.co.in
+username : admin@admin.com
+password : Admin@1234

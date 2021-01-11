@@ -1,0 +1,174 @@
+﻿@model IEnumerable<BasePackageModule2.Models.Seo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="col-sm-12">
+    <!-- Zero config.table start -->
+    <div class="card">
+        <div class="card-header">
+            <h5>Seo</h5>
+            <a class="btn btn-primary float-right" asp-action="Create">Create New</a>
+
+        </div>
+        <div class="card-block">
+            <div class="dt-responsive table-responsive">
+                <table id="simpletable" class="table table-striped table-bordered nowrap">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.MetaTitle)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.MetaDiscription)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CanonicalTag)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.OgTitle)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.OgDescription)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.OgUrl)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.OgSiteName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.MetaTwitter)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.MetaTwitterDescription)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TwitterTitle)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.MsValidate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.GSiteVerivation)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.MetaTitle)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.MetaDiscription)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CanonicalTag)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.OgTitle)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.OgDescription)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.OgUrl)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.OgSiteName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.MetaTwitter)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.MetaTwitterDescription)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TwitterTitle)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.MsValidate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.GSiteVerivation)
+                                </td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section styles {
+    <link rel="stylesheet" type="text/css" href="/lib/DataTables/DataTables-1.10.20/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="/lib/DataTables/Buttons-1.6.1/css/buttons.dataTables.min.css" />
+}
+
+@section Scripts {
+    <script type="text/javascript" src="/lib/DataTables/DataTables-1.10.20/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="/lib/DataTables/JSZip-2.5.0/jszip.min.js"></script>
+    <script type="text/javascript" src="/lib/DataTables/Buttons-1.6.1/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="/lib/DataTables/pdfmake-0.1.36/pdfmake.min.js"></script>
+    <script type="text/javascript" src="/lib/DataTables/pdfmake-0.1.36/vfs_fonts.js"></script>
+    <script type="text/javascript" src="/lib/DataTables/Buttons-1.6.1/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="/lib/DataTables/Buttons-1.6.1/js/buttons.print.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#simpletable').DataTable({
+                dom: 'lBfrtip',
+                buttons: [{
+                        extend: 'pdf',
+                        title: 'BasePackage1._0',
+                        filename: "@DateTime.Now.ToFileTime()",
+                        exportOptions: {
+                            columns: [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+                        }
+                    }, {
+                        extend: 'excel',
+                        title: 'BasePackage1._0',
+                        filename: "@DateTime.Now.ToFileTime()",
+                        exportOptions: {
+                            columns: [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+                        }
+                    }, {
+                        extend: 'csv',
+                        title: 'BasePackage1._0',
+                        filename: "@DateTime.Now.ToFileTime()",
+                        exportOptions: {
+                            columns: [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+                        }
+                    },
+                    {
+                        extend: 'print',
+                        title: 'BasePackage1._0',
+                        filename: "@DateTime.Now.ToFileTime()",
+                        exportOptions: {
+                            columns: [ 0, 1, 2]
+                        }
+                    }],
+                "order": [],
+                "columnDefs": [ {
+                    "targets"  : 'no-sort',
+                    "orderable": false,
+                }],
+
+            });
+
+        });
+
+    </script>
+
+}

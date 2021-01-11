@@ -1,0 +1,152 @@
+﻿@model BasePackageModule2.Models.Menu.Menu
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<div class="col-sm-12">
+    <div class="card">
+        <div class="card-header">
+            <h1>Edit</h1>
+
+            <h4>Menu</h4>
+            <hr />
+            <div class="row">
+                <div class="col-md-4">
+                    <form asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="Name" class="control-label"></label>
+                            <input asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Type" class="control-label"></label>
+                            <select asp-for="Type" class="type form-control">
+                                <option value="interLink">Internal Link</option>
+                                <option value="externalLink">External Link</option>
+                                <option value="productCollection">Product Collection</option>
+                                <option value="categoryCollection">Category Collection</option>
+                            </select>
+                            <span asp-validation-for="Type" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group" id="url">
+                            <label asp-for="Url" class="control-label"></label>
+                            <input asp-for="Url" class="form-control" />
+                            <span asp-validation-for="Url" class="text-danger"></span>
+                        </div>
+
+
+                        <div id="products" class="form-group" style="display: none">
+                            <label asp-for="MenuProducts" class="control-label"></label>
+                            <select multiple="multiple" data-style="btn-info" id="product-select" data-live-search="true" name="products" class="selectpicker form-control" asp-items="ViewBag.Products"></select>
+                            <span asp-validation-for="MenuProducts" class="text-danger"></span>
+                        </div>
+
+                        <div id="categories" class="form-group" style="display: none">
+                            <label asp-for="MenuCategories" class="control-label"></label>
+                            <select multiple="multiple" data-style="btn-info" id="category-select" data-live-search="true" name="categories" class="selectpicker form-control" asp-items="ViewBag.Categories"></select>
+                            <span asp-validation-for="MenuCategories" class="text-danger"></span>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label asp-for="Order" class="control-label"></label>
+                            <input asp-for="Order" class="form-control" />
+                            <span asp-validation-for="Order" class="text-danger"></span>
+                        </div>
+
+                        <div id="display" class="form-group" style="display: none">
+                            <label asp-for="DisplayAs" class="control-label"></label>
+                            <select asp-for="DisplayAs" class="form-control">
+                                <option value="dropdown">Dropdown Menu</option>
+                                <option value="list">Product list page</option>
+                            </select>
+                        </div>
+
+                        <div id="home" class="form-group form-check" style="display: none">
+                            <label class="form-check-label">
+                                <input class="form-check-input" asp-for="ShowOnHomeScreen" /> @Html.DisplayNameFor(model => model.ShowOnHomeScreen)
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" value="Update" class="btn btn-primary" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div>
+                <a asp-action="Index">Back to List</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section styles
+{
+    <link href="~/lib/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+}
+
+@section Scripts {
+    @{
+
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script src="~/lib/bootstrap-select/js/bootstrap-select.min.js"></script>
+
+
+    <script>
+        $(document).ready(function() {
+
+            if($("#Type").val() === "productCollection")
+            {
+                $("#url").hide();
+                $("#products").show();
+                $("#display").show();
+                $("#home").show();
+            }
+            if ($("#Type").val() === "categoryCollection") {
+                $("#categories").show();
+                $("#url").hide();
+                $("#display").hide();
+                $("#products").hide();
+                $("#home").hide();
+            }
+
+
+         
+
+                $("select.type").change(function() {
+                    var selectedType = $(this).children("option:selected").val();
+                    if (selectedType === "interLink" || selectedType === "externalLink") {
+                        $("#url").show();
+                        $("#products").hide();
+                        $("#display").hide();
+                        $("#home").hide();
+                        $("#categories").hide();
+
+                    } else if (selectedType === "productCollection") {
+                        $("#categories").hide();
+                        $("#url").hide();
+                        $("#products").show();
+                        $("#display").show();
+                        $("#home").show();
+                    } else if (selectedType === "categoryCollection") {
+                        $("#categories").show();
+                        $("#url").hide();
+                        $("#display").hide();
+                        $("#products").hide();
+                        $("#home").hide();
+                    }
+                });
+
+
+            });
+
+    </script>
+
+}

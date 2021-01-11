@@ -1,0 +1,200 @@
+﻿@using BasePackageModule2.Extensions
+@model BasePackageModule2.Models.Product
+
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<div class="container">
+    <hr>
+
+    <div class="row mb-4">
+        <aside class="col-sm-5 border-right">
+
+            <div class="exzoom hidden" id="exzoom">
+                <div class="exzoom_img_box">
+
+
+                    <ul class='exzoom_img_ul'>
+                        <li><img src="@Model.Image" class="img-fluid" alt="@Model.Name" /></li>
+                        @foreach (var productImage in Model.Images)
+                        {
+                        <li><img src="@productImage.Img" class="img-fluid" /></li>
+
+                        }
+                    </ul>
+
+                </div>
+                <div class="exzoom_nav"></div>
+                <p class="exzoom_btn">
+                    <a href="javascript:void(0);" class="exzoom_prev_btn"> < </a>
+                    <a href="javascript:void(0);" class="exzoom_next_btn"> > </a>
+                </p>
+            </div>
+
+        </aside>
+        <aside class="col-sm-7">
+            <form id="buy-add-form" method="get" asp-controller="Cart" asp-action="AddToCart">
+                <article class="card-body p-5">
+
+                    <h3 class="title mb-3">@Model.Name</h3>
+
+                    <!--<p class="price-detail-wrap">
+        <span class="price h3" style="color: #0a1435">
+            @if (Math.Abs(Model.DiscountAmount.GetValueOrDefault()) > 0)
+            {
+                <span class="basePrice" style=" text-decoration: line-through; font-size: 20px;">₹@Model.RoundedBasePrice</span>
+            }
+            <span class="">₹@Model.FinalPrice</span>
+            @if (Math.Abs(Model.DiscountAmount.GetValueOrDefault()) > 0)
+            {
+                <span style="font-size: 20px;" class="discount">@(Model.DiscountPercentage)% Off</span>
+            }
+        </span>
+        <br />
+        <br />
+
+    </p>-->
+                    <!-- price-detail-wrap .// -->
+                    <dl class="item-property">
+                        <dt>Description</dt>
+                        <dd>
+                            <p>
+                                @Html.Raw(Model.Description)
+                            </p>
+                        </dd>
+                    </dl>
+                    <dl class="param param-feature">
+                    </dl>  <!-- item-property-hor .// -->
+                    <dl class="param param-feature">
+                    </dl>  <!-- item-property-hor .// -->
+                    <dl class="param param-feature">
+                    </dl>  <!-- item-property-hor .// -->
+                    <!--<hr>
+    <div class="row">
+        <div class="col-sm-5">
+            <dl class="param param-inline">
+                <dt>Quantity: </dt>
+                <dd>
+                    <input id="qty" type="number" value="1" class="form-control" />
+                </dd>
+            </dl>-->
+                    <!-- item-property .// -->
+                    <!--</div>--> <!-- col.// -->
+                    <!--<div class="col-sm-7">-->
+                    <!-- item-property .// -->
+                    <!--</div>--> <!-- col.// -->
+                    <!--</div>--> <!-- row.// -->
+                    <!--<hr>
+    <a href="#" id="buyNow" class="btn  text-uppercase text-uppercase mb-2" style="min-width: 220px;"> Buy now </a>
+    <a href="#" id="addToCart" class="btn  text-uppercase mb-2"> <i class="fas fa-shopping-cart"></i> Add to cart </a>-->
+                    <a href="/Home/Contact"  class="btn  text-uppercase mb-2">  Get Quote </a>
+                </article>
+            </form>
+        </aside> <!-- col.// -->
+    </div> <!-- row.// -->
+
+
+
+</div>
+
+
+<section class="related-product border border-top border-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <h2 class="text-center mt-2 mb-2">You May Like This</h2>
+            </div>
+        </div>
+        <div class="row mt-5 mb-5">
+            @foreach (var item in ViewBag.Funds)
+            {
+
+            <div class="col-sm-12 col-md-4 col-lg-4 mt-2">
+                <div class="card">
+                    <img class="card-img-top" src="@item.Image" alt="Card image cap">
+                    <div class="card-body">
+                        <a asp-action="Details" asp-controller="Products" asp-route-id="@item.Id">
+                            <h6 class="card-title text-center">@item.Name</h6>
+                            @*<h4 class="text-center">Rs.@item.FinalPrice</h4>*@
+                        </a>
+                        <p class="text-center"> <a asp-action="Details" class="btn text-center mt-3 mb-2"  asp-controller="Products" asp-route-id="@item.Id">Read More !</a></p>
+                    </div>
+                </div>
+
+            </div>
+            }
+                    </div>
+    </div>
+</section>
+<!--container.//-->
+<section class="parallax">
+    <div class="container-fluid">
+        <div class="row">
+
+        </div>
+    </div>
+</section>
+
+@section Styles
+{
+    <link href="https://www.jqueryscript.net/demo/Product-Carousel-Magnifying-Effect-exzoom/jquery.exzoom.css" rel="stylesheet" type="text/css" />
+    @*<link href="~/css/product-details.css" rel="stylesheet" />*@
+}
+
+@section Scripts
+{
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+    <script src="https://www.jqueryscript.net/demo/Product-Carousel-Magnifying-Effect-exzoom/jquery.exzoom.js"></script>
+
+    <link href="https://www.jqueryscript.net/demo/Product-Carousel-Magnifying-Effect-exzoom/jquery.exzoom.css" rel="stylesheet" type="text/css" />
+
+    <script>
+        $(document).ready(function() {
+            $("#addToCart").click(function(event) {
+                event.preventDefault();
+
+                var qty = $("#qty").val();
+
+                if (qty < 1) {
+                    alert("Please Select Quantity more than 1.");
+                } else {
+                    $('#buy-add-form').append('<input type="hidden" name="qty" value="' + qty + '" />');
+                    $('#buy-add-form').append('<input type="hidden" name="productId" value="' + @Model.Id + '" />');
+                    $("#buy-add-form").submit();
+                }
+            });
+
+
+            $("#buyNow").click(function(event) {
+                event.preventDefault();
+
+                $("#buy-add-form").attr("action", "/BuyNow");
+
+                var qty = $("#qty").val();
+
+                if (qty < 1) {
+                    alert("Please Select Quantity more than 1.");
+                } else {
+                    $('#buy-add-form').append('<input type="hidden" name="qty" value="' + qty + '" />');
+                    $('#buy-add-form').append('<input type="hidden" name="productId" value="' + @Model.Id + '" />');
+                    $("#buy-add-form").submit();
+                }
+            });
+
+        });
+    </script>
+    
+
+    <script type="text/javascript">
+
+        $('.container').imagesLoaded(function () {
+            $("#exzoom").exzoom({
+                autoPlay: false,
+            });
+            $("#exzoom").removeClass('hidden')
+        });
+
+    </script>
+}

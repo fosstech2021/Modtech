@@ -1,0 +1,55 @@
+﻿@model BasePackageModule2.Models.BusinessProfile
+<div class="top-bar">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-9">
+                <ul>
+                    @if (Model.RegisteredContactNumber != null)
+                    {
+                        <li><a href="tel:@Model.RegisteredContactNumber"><i class="fas fa-phone-alt mr-2"></i> @Model.RegisteredContactNumber</a></li>
+
+                    }
+                    @if (Model.EmailAddress != null)
+                    {
+                        <li><a href="@Model.EmailAddress"><i class="fas fa-paper-plane mr-2"></i>@Model.EmailAddress</a></li>
+                    }
+                    @if (Model.Address != null)
+                    {
+                        <li><i class="fas fa-map-marker-alt mr-1"></i>@Model.Address, @Model.City </li>
+                    }
+                </ul>
+            </div>
+
+            <div class="col-md-3 top-bar-icons">
+                <ul>
+                    @if (Model.FacebookPageURL != null)
+                    {
+                        <li><a href="@Model.FacebookPageURL"><i class="fab fa-facebook-f"></i></a></li>
+                    }
+                    @if (Model.InstagramPageURL != null)
+                    {
+                        <li><a href="@Model.InstagramPageURL"><i class="fab fa-instagram "></i></a></li>
+                    }
+                    @if (Model.TwitterURL != null)
+                    {
+                        <li><a href="@Model.TwitterURL"><i class="fab fa-twitter "></i></a></li>
+                    }
+                    @if (Model.WhatsAppForBusinessNumber != null)
+                    {
+                        <li><a href="https://wa.me/@Model.WhatsAppForBusinessNumber" target="_blank"> <i class="fab fa-whatsapp "></i></a></li>
+                    }
+                    @if (Model.LinkedInURL != null)
+                    {
+                        <li><a href="@Model.LinkedInURL"><i class="fab fa-linkedin "></i></a></li>
+                    }
+                <li>
+                    <div id="google_translate_element"></div>
+                </li>
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+
+</div>
+

@@ -1,0 +1,177 @@
+
+#top-bar .container-fluid .row .list-section {
+  list-style-type: none;
+  padding: 0px;
+  margin-top: -15px;
+}
+
+#top-bar .container-fluid .row .list-section .list-menu {
+  text-decoration: none;
+}
+
+#top-bar .container-fluid .row .list-section .list-menu img {
+  margin-right: 4px;
+}
+
+#top-bar .container-fluid .row .list-section .list-menu .fas {
+  margin-right: 4px;
+}
+
+#top-bar .container-fluid .row .col-lg-3 .img-fluid {
+  margin-top: -15px;
+}
+
+.home-section .container-fluid .row .section-orthopadics .list .card-header {
+    color: #fff;
+   
+}
+
+.home-section .container-fluid .row .section-orthopadics .list .list-item {
+    padding: 5px;
+    background: #00337F;
+    border-bottom: black 1px solid;
+}
+    .home-section .container-fluid .row .section-orthopadics .list .list-item .ortho-list {
+        margin: -5px;
+        list-style: none;
+        
+        padding: 5px;
+        border-bottom: black 1px solid;
+    }
+
+.home-section .container-fluid .row .section-orthopadics .list .list-item a {
+  color: #000;
+  text-decoration: none;
+  font-size: 14px;
+  margin-left: 7px;
+  padding: 5px;
+}
+
+.home-section .container-fluid .row .about-hospital .card {
+  /*width: 18rem;*/
+  margin-top: 10px;
+}
+
+    .home-section .container-fluid .row .about-hospital .card .card-header {
+        color: #fff;
+        font-size: 14px;
+        padding: 9px 15px;
+        background: #25136D;
+    }
+
+.home-section .container-fluid .row .hospital-infra .card {
+  margin-left: -34px;
+  /*width: 17rem;*/
+}
+
+.home-section .container-fluid .row .hospital-infra .card .card-header {
+  color: #fff;
+  font-size: 14px;
+  padding: 9px 15px;
+  background: #25136d;
+}
+
+.home-section .container-fluid .row .hospital-infra .card .card-header .scroll-item-up {
+  list-style: none;
+  height: 100px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  cursor: pointer;
+}
+
+.home-section .container-fluid .row .hospital-infra .card .card-header .scroll-item-up li {
+  height: 30px;
+  background: #ccc;
+  border-bottom: black 1px solid;
+}
+
+.home-section .container-fluid .row .hospital-infra .card .card-header .scroll-item-up li a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.home-section .container-fluid .row .sapciality-clinin .card {
+  /*margin-left: -34px;*/
+  /*width: 17rem;*/
+}
+
+.home-section .container-fluid .row .sapciality-clinin .card .card-header {
+  color: #fff;
+  font-size: 14px;
+  padding: 9px 15px;
+  background: #25136d;
+}
+
+.home-section .container-fluid .row .sapciality-clinin .card .card-header .scroll-item-up {
+  list-style-type: none;
+  cursor: pointer;
+}
+
+.home-section .container-fluid .row .sapciality-clinin .card .card-header .scroll-item-up li a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.home-section .container-fluid .row .donate-for-cause .card {
+  /*width: 15rem;*/
+}
+
+.home-section .container-fluid .row .donate-for-cause .card .card-header {
+  color: #fff;
+  font-size: 14px;
+  padding: 9px 15px;
+  background: #25136d;
+}
+
+.home-section .container-fluid .row .donate-for-cause .card .card-header .scroll-item-up {
+  list-style-type: none;
+  cursor: pointer;
+}
+
+.home-section .container-fluid .row .donate-for-cause .card .card-header .scroll-item-up li a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.home-section .list-group {
+  list-style: none;
+  height: 100px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 220px;
+}
+
+/*scroll css*/
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-button {
+  width: 8px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #eee;
+  border: thin solid lightgray;
+  -webkit-box-shadow: 0px 0px 3px #dfdfdf inset;
+          box-shadow: 0px 0px 3px #dfdfdf inset;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #999;
+  border: thin solid gray;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7d7d7d;
+}
+/*# sourceMappingURL=home-section.css.map */

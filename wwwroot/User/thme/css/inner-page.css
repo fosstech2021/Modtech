@@ -1,0 +1,20 @@
+﻿.page-header {
+    background-color: #25136D;
+    font-size: 18px;
+    color: #FFF;
+    text-transform: uppercase;
+    padding: 20px;
+}
+
+.section-content .container .row .card .list-group .list-group-item a {
+    text-decoration: none;
+}
+
+.section-content .container .row .card .list-group :hover {
+    background-color: #25136D;
+    color: #FFF !important;
+}
+
+.card .list-group-item :hover {
+    background-color: 160;
+}

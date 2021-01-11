@@ -1,0 +1,107 @@
+.header {
+    margin-top: 15px;
+    margin-bottom: 7px;
+}
+
+    .header .form-inline a .fa {
+        font-size: 20px;
+        color: darkgray;
+    }
+
+    .header .form-inline a .fa-headphones {
+        font-size: 20px;
+        color: darkgray;
+    }
+
+    .header .form-inline a .fa-youtube-play {
+        font-size: 20px;
+        color: darkgray;
+    }
+
+    .header .form-inline a .fa-plus {
+        font-size: 20px;
+        background-color: #2980b9;
+        padding: 16px;
+        color: #fff;
+        border-radius: 100%;
+        margin-left: 94px;
+    }
+
+.navbar {
+    padding: 0px;
+}
+
+    .navbar .navbar-nav .nav-item {
+        text-transform: uppercase;
+        font-size: 13px;
+        margin-right: 15px;
+        -webkit-transition: background-color .2s;
+        transition: background-color .2s;
+    }
+
+    .navbar .navbar-nav .dropdown-menu {
+        background: #F8F9FA;
+        font-size: 13px;
+        border: none;
+    }
+
+        .navbar .navbar-nav .dropdown-menu .dropdown-item {
+            color: gray;
+        }
+
+    .navbar .navbar-nav .dropdown:hover > .dropdown-menu {
+        display: block;
+    }
+
+.article {
+    margin-top: 10px;
+    margin-left: 12px;
+}
+
+    .article img {
+        border-color: rgba(0, 0, 0, 0.07);
+        background-image: radial-gradient(circle, #fafafa, #fbfbfb, #fcfdfc, #fefefe, #ffffff);
+        -webkit-box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.15);
+    }
+
+    .article p {
+        color: #686868;
+        font-size: 1rem;
+        line-height: 1.6;
+        font-weight: 300;
+    }
+
+.impx-sidebar .impx-widget {
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background-image: -webkit-gradient(linear, left bottom, left top, from(#fdfdfd), color-stop(#fefefe), color-stop(#fefefe), color-stop(#ffffff), to(#ffffff));
+    background-image: linear-gradient(to top, #fdfdfd, #fefefe, #fefefe, #ffffff, #ffffff);
+    background-image: radial-gradient(circle, #f8f8f8, #fafafa, #fbfcfb, #fdfdfd, #ffffff);
+    background-image: radial-gradient(circle, #fafafa, #fbfbfb, #fcfdfc, #fefefe, #ffffff);
+    background-image: radial-gradient(circle, #fcfcfc, #fdfdfd, #fefefe, #fefefe, #ffffff);
+    -webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.03);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.03);
+    margin-bottom: 2rem !important;
+    padding-bottom: 1.5rem !important;
+}
+
+    .impx-sidebar .impx-widget h {
+        margin-bottom: 1.8rem !important;
+    }
+
+    .impx-sidebar .impx-widget ul {
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+    }
+
+        .impx-sidebar .impx-widget ul li {
+            font-size: .9rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+        }
+
+            .impx-sidebar .impx-widget ul li a {
+                text-decoration: none;
+            }
+/*# sourceMappingURL=menumbar.css.map */

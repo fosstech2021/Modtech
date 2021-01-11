@@ -1,0 +1,103 @@
+﻿<div class="container-fluid" id="navbar">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg p-0">
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" asp-area="TomBase" asp-controller="TomBase" asp-action="Index">Dashboard<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Manage customer
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" asp-area="TomBase" asp-controller="ContactMessages" asp-action="Index">Enquiries</a>
+                            <a class="dropdown-item" href="#">calls</a>
+
+                            <a class="dropdown-item" asp-area="TomBase" asp-controller="Subscribers" asp-action="Index">New Letter Subscribers</a>
+
+
+
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Orders
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+
+                            <a class="dropdown-item" asp-area="TomBase" asp-controller="Orders" asp-action="Index">Manage Orders</a>
+                            @*<a class="dropdown-item" asp-area="TomBase" asp-controller="Order" asp-action="OrderPickUp">Order PickUp</a>*@
+
+                        </div>
+                    </li>
+                    <li class="nav-item active">
+
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Manage profile
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" asp-area="TomBase" asp-controller="BusinessProfile" asp-action="Index">Business Profile</a>
+                            <a class="dropdown-item" asp-area="TomBase" asp-controller="AboutUs" asp-action="Index">About Us</a>
+                            <a class="dropdown-item" asp-area="TomBase" asp-controller="Logoes" asp-action="Index"> logo & favicon </a>
+                            <a class="dropdown-item" asp-area="TomBase" asp-controller="Images" asp-action="Index"> image gallery </a>
+                            <a class="dropdown-item" asp-area="TomBase" asp-controller="SliderImages" asp-action="Index"> Sliders </a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Manage Content
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" asp-area="TomBase" asp-controller="Products" asp-action="Index"> Product Catalog </a>
+                            <a class="dropdown-item" asp-area="TomBase" asp-controller="Categories" asp-action="Index">Product Category </a>
+                            <a class="dropdown-item" asp-area="TomBase" asp-controller="SubCategories" asp-action="Index">Product Sub-Category </a>
+                            <a class="dropdown-item" asp-area="TomBase" asp-controller="Coupons" asp-action="Index"> Coupons </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" asp-area="TomBase" asp-controller="Posts" asp-action="Index"> Latest Updates </a>
+                            <a class="dropdown-item" asp-area="TomBase" asp-controller="Pages" asp-action="Index"> Custom Page </a>
+
+                        </div>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Add-ons Market Place</a>
+                    </li>
+
+                    <li class="nav-item active">
+                        <a class="nav-link" asp-area="TomBase" asp-controller="Seo" asp-action="Index">SEO Function</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Settings
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" asp-area="TomBase" asp-controller="Colors" asp-action="Index">Colors</a>
+                            <a class="dropdown-item" asp-area="TomBase" asp-controller="Menus" asp-action="Index">Menu</a>
+                            <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index">My account</a>
+                            <a class="dropdown-item" asp-area="TomBase" asp-action="Index" asp-controller="Users">Users</a>
+                            <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/ChangePassword">change password</a>
+
+                            <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Email">Email</a>
+
+                            <a href="#" onclick="document.getElementById('logout').submit(); return false;" class="dropdown-item">
+                                Logout
+                            </a>
+                            <form id="logout" style="display: none" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new {area = ""})">
+                                <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+                            </form>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>

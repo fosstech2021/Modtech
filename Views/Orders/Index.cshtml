@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Order>
+@{
+    ViewData["Title"] = "Orders";
+}
+
+    <div class="container my-5">
+        <div class="row">
+            <section id="content" class="site-content col-md-12 col-xs-12">
+                <article id="post-6" class="post-6 page type-page status-publish hentry">
+                    @if (Model.Any())
+                    {<table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="">Order Id</th>
+                                    <th>Image</th>
+                                    <th>Product Name</th>
+                                    <th>Quantity</th>
+                                    <th>Amount</th>
+                                    <th>Payment Status</th>
+                                    <th>Order date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+
+                                @foreach (var order in Model)
+                                {
+                                    foreach (var item in order.OrderProducts)
+                                    {
+                                <tr>
+                                    <td>
+                                        @order.Id
+                                    </td>
+                                    <td>
+                                        @if (item.Product.Image != null)
+                                        {
+                                            <a asp-controller="Products" asp-action="Details" asp-route-id="@item.Product.Id"><img width="100" src="@item.Product.Image" alt="@item.Product.Name" /></a>
+                                        }
+
+                                    </td>
+                                    <td>
+                                        <a asp-controller="Products" asp-action="Details" asp-route-id="@item.Product.Id">@item.Product.Name</a>
+                                    </td>
+                                    <td>@item.Quantity</td>
+                                    <td>₹ @order.Amount</td>
+                                    <td style="text-align: center">@order.PaymentStatus</td>
+                                    <td>@order.Date.ToShortDateString()</td>
+                                </tr>
+                                    }
+                                }
+                            </tbody>
+
+                        </table>
+                    }
+                    else
+                    {
+                        <h2>You haven't ordered yet, order something.</h2>
+                        <a asp-action="Index" asp-controller="Home" class="btn btn-primary">Continue Shopping</a>
+                    }
+
+                </article>
+            </section>
+        </div>
+    </div>

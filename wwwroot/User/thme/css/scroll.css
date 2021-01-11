@@ -1,0 +1,17 @@
+.list-group {
+  list-style: none;
+  height: 100px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.list-group .list-group-item {
+  
+  border-bottom: black 1px solid;
+}
+
+    .list-group .list-group-item a {
+        text-decoration:none;
+        color:black;
+    }
+/*# sourceMappingURL=scroll.css.map */

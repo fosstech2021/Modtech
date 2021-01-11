@@ -1,0 +1,81 @@
+﻿@model BasePackageModule2.Areas.TomBase.ViewModels.AdminViewModel
+
+@{
+    ViewBag.Title = "Admin Dashboard";
+    Layout = "_Layout";
+}
+
+<div class="col-xl-3 col-md-6">
+    <div class="card bg-c-blue update-card">
+        <div class="card-block">
+            <div class="row align-items-end">
+                <div class="col-8">
+                    <h4 class="text-white">@Model.Products</h4>
+                    <h6 class="text-white m-b-0">All Products</h6>
+                </div>
+            </div>
+        </div>
+        <a asp-area="TomBase" asp-controller="Products" asp-action="Index">
+            <div class="card-footer">
+                <p class="text-white m-b-0"><i class="fa fa-product-hunt text-white f-14 m-r-10"></i>Show Products</p>
+            </div>
+        </a>
+    </div>
+</div>
+
+<div class="col-xl-3 col-md-6">
+    <div class="card bg-c-green update-card">
+        <div class="card-block">
+            <div class="row align-items-end">
+                <div class="col-8">
+                    <h4 class="text-white">@Model.Categories</h4>
+                    <h6 class="text-white m-b-0">All Categories</h6>
+                </div>
+            </div>
+        </div>
+        <a asp-area="TomBase" asp-controller="Categories" asp-action="Index">
+            <div class="card-footer">
+                <p class="text-white m-b-0"><i class="fa fa-list text-white f-14 m-r-10"></i>Goto Categories</p>
+            </div>
+        </a>
+    </div>
+</div>
+
+<div class="col-xl-3 col-md-6">
+            <div class="card bg-c-lite-green update-card">
+                <div class="card-block">
+                    <div class="row align-items-end">
+                        <div class="col-8">
+                            <h4 class="text-white">@Model.Posts</h4>
+                            <h6 class="text-white m-b-0">Posts</h6>
+                        </div>
+                    </div>
+                </div>
+                <a asp-controller="Posts">
+                    <div class="card-footer">
+                        <p class="text-white m-b-0"><i class="fa fa-sticky-note text-white f-14 m-r-10"></i>Show Posts</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-c-yellow update-card">
+                <div class="card-block">
+                    <div class="row align-items-end">
+                        <div class="col-8">
+                            <h4 class="text-white">@Model.Messages</h4>
+                            <h6 class="text-white m-b-0">Inquires</h6>
+                        </div>
+                    </div>
+                </div>
+                <a asp-controller="ContactMessages" asp-action="Index">
+                    <div class="card-footer">
+                        <p class="text-white m-b-0"><i class="fa fa-envelope text-white f-14 m-r-10"></i>Show Inquires</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+  
+
+<!-- task, page, download counter  end -->

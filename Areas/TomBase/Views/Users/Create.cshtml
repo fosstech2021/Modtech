@@ -1,0 +1,90 @@
+﻿@model BasePackageModule2.Areas.TomBase.ViewModels.RegisterViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="col-sm-12">
+    <!-- Basic Form Inputs card start -->
+    <div class="card">
+        <div class="card-header">
+
+            <h1>Create</h1>
+            <h4>User</h4>
+            <hr />
+        </div>
+        <div class="card-block">
+
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="FirstName" class="control-label"></label>
+                    <input asp-for="FirstName" class="form-control" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LastName"></label>
+                    <input asp-for="LastName" class="form-control" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="MobileNumber"></label>
+                    <input asp-for="MobileNumber" class="form-control" />
+                    <span asp-validation-for="MobileNumber" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Roles"></label>
+                    <select multiple="multiple" data-style="btn-info"  asp-for="Roles" class="selectpicker form-control" asp-items="ViewBag.Roles"></select>
+                    <span asp-validation-for="Roles" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password"></label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ConfirmPassword"></label>
+                    <input asp-for="ConfirmPassword" class="form-control" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <!-- Basic Form Inputs card end -->
+
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section styles
+{
+    <link href="~/lib/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+}
+
+@section Scripts {
+    @{
+
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script src="~/lib/bootstrap-select/js/bootstrap-select.min.js"></script>
+
+
+    <script>
+        $(document).ready(function() {
+
+            $("#Roles").selectpicker();
+        });
+    </script>
+}

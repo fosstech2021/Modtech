@@ -1,0 +1,98 @@
+﻿@model Order
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="col-sm-12">
+<!-- Basic Form Inputs card start -->
+<div class="card">
+<div class="card-header">
+    <h1>Edit</h1>
+    <h4>Order</h4>
+    <hr/>
+</div>
+<div class="card-block">
+<form asp-action="Edit">
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<input type="hidden" asp-for="Id"/>
+<div class="form-group">
+    <label asp-for="AddressId" class="control-label"></label>
+    <input asp-for="AddressId" class="form-control"/>
+    <span asp-validation-for="AddressId" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="UserId" class="control-label"></label>
+    <select asp-for="UserId" class="form-control" asp-items="@(new SelectList(ViewBag.Users, "Id", "FullName"))"></select>
+    @* <input asp-for="UserId" class="form-control" /> *@
+    <span asp-validation-for="UserId" class="text-danger"></span>
+</div>
+<div class="form-group">
+<label asp-for="Products" class="control-label"></label>
+    <select 
+        asp-for="Products" 
+        class="select2" 
+        multiple="multiple" 
+        asp-items="@( new MultiSelectList(ViewBag.Products, "Id", "Name", Model.OrderProducts.Select(e => e.ProductId).ToArray()))"></select>
+    <span asp-validation-for="Products" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="PaymentId" class="control-label"></label>
+                    <input asp-for="PaymentId" class="form-control" />
+                    <span asp-validation-for="PaymentId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TransactionId" class="control-label"></label>
+                    <input asp-for="TransactionId" class="form-control" />
+                    <span asp-validation-for="TransactionId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PaymentStatus" class="control-label"></label>
+                    <input asp-for="PaymentStatus" class="form-control" />
+                    <span asp-validation-for="PaymentStatus" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Amount" class="control-label"></label>
+                    <input asp-for="Amount" class="form-control" />
+                    <span asp-validation-for="Amount" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Basic Form Inputs card end -->
+
+</div>
+
+<div>
+    <a class="btn btn-primary" asp-action="Index">Back to List</a>
+</div>
+
+
+
+@section styles
+    {
+    <link href="/lib/switchery/switchery.min.css" rel="stylesheet" />
+    <link href="/lib/select2/css/select2.min.css" rel="stylesheet" />
+
+}
+
+@section Scripts
+    {
+    <script src="/lib/switchery/switchery.min.js"></script>
+    <script src="/lib/select2/js/select2.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.js-small').each(function (el, em) {
+                new Switchery(em, { color: '#4680ff', jackColor: '#fff', size: 'small' });
+            });
+            $('.select2').select2();
+        });
+
+    </script>
+}

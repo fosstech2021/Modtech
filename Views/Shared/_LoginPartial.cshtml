@@ -1,0 +1,47 @@
+﻿@using BasePackageModule2.Models
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@using Microsoft.AspNetCore.Http
+@using BasePackageModule2.Utility
+@using Microsoft.EntityFrameworkCore
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{
+
+    var user = await UserManager.Users.Include(a => a.Cart).FirstOrDefaultAsync(a => a.Id == UserManager.GetUserId(User));
+    
+}
+
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <li class=" dropdown">
+      
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            @if (user.Id != null && await UserManager.IsInRoleAsync(user, "Admin"))
+            {
+            <a class="dropdown-item" asp-area="TomBase" asp-controller="TomBase" asp-action="Index">Admin Panel</a>
+            }
+            <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index">My Account</a>
+            <a class="dropdown-item" asp-controller="Orders" asp-action="Index">My Orders</a>
+            <a href="#" class="dropdown-item" onclick="document.getElementById('logout').submit();return false;">Logout</a>
+            <form id="logout" class="d-none" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new {area = ""})" method="post">
+                <button type="submit" class="nav-link btn btn-link dropdown-item">Logout</button>
+            </form>
+        </div>
+    </li>
+
+   
+
+}
+else
+{
+    
+       
+        <li class="">
+            <a class="nav-link " asp-area="Identity" asp-page="/Account/Login"><i class="fas fa-shopping-bag" style="color:#121234; font-size:20px;"></i></a>
+        </li>
+    
+}
+

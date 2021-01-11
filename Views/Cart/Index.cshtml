@@ -1,0 +1,221 @@
+﻿@model List<Cart>
+@{
+    ViewData["Title"] = "Cart";
+}
+<section id="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-sm-12">
+                <h1 class="text-center text-white text-uppercase">Shopping Cart</h1>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<div class="container my-5">
+    <div class="row">
+
+        <section id="content" class="site-content col-md-12 col-xs-12">
+            <article id="post-609" class="post-609 page type-page status-publish hentry">
+                <div class="woocommerce">
+                    @if (Model.Count > 0)
+                    {
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="product-remove">Remove</th>
+                                        <th class="product-thumbnail">Product Image</th>
+                                        <th class="product-price"> <span class="nobr">Product Name</span></th>
+                                        <th class="product-price"> <span class="nobr"> Unit Price </span></th>
+                                        <th class="product-stock-status"> <span class="nobr"> Quantity</span></th>
+                                        <th class="product-add-to-cart">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        double subTotal = 0;
+                                    }
+                                    @foreach (var item in Model)
+                                    {
+
+                                        <tr>
+                                            <td class=""><a asp-controller="Cart" asp-action="Remove" asp-route-id="@item.Id" class="btn btn-danger btn-sm"><i class="fas fa-times"></i></a></td>
+
+                                            <td>
+                                                @if (item.Product.Image != null)
+                                                {
+                                                    <a asp-controller="Products" asp-action="Details" asp-route-id="@item.Product.Id"><img width="200" src="@item.Product.Image" alt="@item.Product.Name" /></a>
+                                                }
+
+                                            </td>
+                                            <td><a asp-controller="Products" asp-action="Details" asp-route-id="@item.Product.Id">@item.Product.Name </a></td>
+                                            <td>₹ @item.Product.FinalPrice</td>
+                                            <td>
+                                                <div style="width: 141px;">
+                                                    <p>
+                                                    </p>
+                                                    <div class="input-group">
+                                                        <span class="input-group-btn">
+                                                            <button type="button" class="btn  btn-number" data-type="minus" data-field="quant[@item.Id]">
+                                                                <span class="fas fa-minus"></span>
+                                                            </button>
+                                                        </span>
+                                                        <input type="text" cartId="@item.Id" name="quant[@item.Id]" class="form-control input-number" value="@item.Qty" min="1" max="1000">
+                                                        <span class="input-group-btn">
+                                                            <button type="button" class="btn btn-number" data-type="plus" data-field="quant[@item.Id]">
+                                                                <span class="fas fa-plus"></span>
+                                                            </button>
+                                                        </span>
+                                                    </div>
+                                                    <p></p>
+                                                </div>
+                                            </td>
+                                            <td>₹ @(item.Product.FinalPrice * item.Qty)</td>
+                                        </tr>
+                                        if (item.Product.FinalPrice != null)
+                                        {
+                                            subTotal += (double)item.Product.FinalPrice * item.Qty;
+                                        }
+                                    }
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="4"></td>
+                                        <td><b>Subtotal</b></td>
+                                        <td><b>₹ @subTotal</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4"></td>
+                                        <td><button id="update" class="btn btn-success" style="display: none">Update</button></td>
+                                        <td><a asp-controller="Checkout" asp-action="Index" class="btn  button">Checkout</a></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="woocommerce-notices-wrapper"></div>
+                        <p class="cart-empty woocommerce-info">Your cart is currently empty.</p>
+                        <p class="return-to-shop">
+                            <a class="button wc-backward" asp-controller="Home" asp-action="Index">
+                                Return to shop
+                            </a>
+                        </p>
+                    }
+
+
+                </div>
+            </article>
+        </section><!-- #main -->
+
+    </div>
+
+</div>
+
+
+
+@section Scripts
+{
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script>
+        $("#update").click(function () {
+            var data = [];
+            $("input[cartId]").each(function () {
+                data.push({ "cartId": $(this).attr("cartId"), "QTY": $(this).val() });
+            });
+            console.log(data);
+            $.post({
+                //                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                type: 'POST',
+                url: "/Cart/UpdateCart",
+                data: { "items": data },
+                async: true,
+                //                data: data,
+                success: function (response) {
+                    console.log(response);
+                    location.reload();
+                },
+                failure: function (response) {
+                    console.log(response);
+                    alert("Something went wrong.");
+                }
+            });
+        });
+
+        $('.btn-number').click(function (e) {
+            e.preventDefault();
+            $("#update").show();
+            fieldName = $(this).attr('data-field');
+            type = $(this).attr('data-type');
+            var input = $("input[name='" + fieldName + "']");
+            var currentVal = parseInt(input.val());
+            if (!isNaN(currentVal)) {
+                if (type === 'minus') {
+
+                    if (currentVal > input.attr('min')) {
+                        input.val(currentVal - 1).change();
+                    }
+                    if (parseInt(input.val()) == input.attr('min')) {
+                        $(this).attr('disabled', true);
+                    }
+
+                } else if (type == 'plus') {
+
+                    if (currentVal < input.attr('max')) {
+                        input.val(currentVal + 1).change();
+                    }
+                    if (parseInt(input.val()) == input.attr('max')) {
+                        $(this).attr('disabled', true);
+                    }
+
+                }
+            } else {
+                input.val(0);
+            }
+        });
+        $('.input-number').focusin(function () {
+            $(this).data('oldValue', $(this).val());
+        });
+        $('.input-number').change(function () {
+
+            minValue = parseInt($(this).attr('min'));
+            maxValue = parseInt($(this).attr('max'));
+            valueCurrent = parseInt($(this).val());
+
+            name = $(this).attr('name');
+            if (valueCurrent >= minValue) {
+                $(".btn-number[data-type='minus'][data-field='" + name + "']").removeAttr('disabled')
+            } else {
+                alert('Sorry, the minimum value was reached');
+                $(this).val($(this).data('oldValue'));
+            }
+            if (valueCurrent <= maxValue) {
+                $(".btn-number[data-type='plus'][data-field='" + name + "']").removeAttr('disabled')
+            } else {
+                alert('Sorry, the maximum value was reached');
+                $(this).val($(this).data('oldValue'));
+            }
+
+
+        });
+        $(".input-number").keydown(function (e) {
+            // Allow: backspace, delete, tab, escape, enter and .
+            if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
+                // Allow: Ctrl+A
+                (e.keyCode == 65 && e.ctrlKey === true) ||
+                // Allow: home, end, left, right
+                (e.keyCode >= 35 && e.keyCode <= 39)) {
+                // let it happen, don't do anything
+                return;
+            }
+            // Ensure that it is a number and stop the keypress
+            if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+                e.preventDefault();
+            }
+        });
+    </script>
+}

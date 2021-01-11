@@ -1,0 +1,37 @@
+﻿@model BasePackageModule2.Models.Banner
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="col-sm-12">
+    <div class="card">
+        <div class="card-header">
+            <h5>Banner</h5>
+        </div>
+        <div class="card-block">
+            <div class="row">
+                <div class="col-12">
+
+                    <h1>Details</h1>
+                    <div>
+                        <hr />
+                        <dl class="row">
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.Image)
+                            </dt>
+                            <dd class="col-sm-10">
+                                <img width="200" src="@Model.Image" alt="@Model.Image" />
+                            </dd>
+                        </dl>
+                    </div>
+                    <div>
+                        <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+                        <a asp-action="Index">Back to List</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

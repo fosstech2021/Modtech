@@ -1,0 +1,100 @@
+﻿@model Order
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+@*@section PageHeader
+    {
+        <div class="alus-breadcrumb breadcrumb-layout1" style="background-image:url();">
+            <div class="container">
+                <div class="breadcrumb-title-inner">
+                    <h1 class="breadcrumb-title">Orders</h1>
+                    <div class="breadcrumbs">
+                        <div class="breadcrumbs-content">
+                            <a asp-controller="Home" asp-action="Index" title="Home">Home</a>
+                            <span class="divider">
+                                <i class="fas fa-angle-right"></i>
+                            </span>
+                            <a asp-controller="Orders" asp-action="Index" title="Orders">Orders</a>
+                            <span class="divider">
+                                <i class="fas fa-angle-right"></i>
+                            </span>
+                            Orders
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }*@
+
+<h1>Details</h1>
+
+<div>
+    <h4>Order #@Model.Id</h4>
+    <hr />
+    <div class="row">
+        <section id="content" class="site-content col-md-12 col-xs-12">
+            <article id="post-609" class="post-609 page type-page status-publish hentry">
+                <div class="woocommerce">
+                    @if (Model.OrderProducts.Any())
+                    {
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+
+                                        <th class="product-thumbnail">Product Image</th>
+                                        <th class="product-price"> <span class="nobr">Product Name</span></th>
+                                        <th class="product-price"> <span class="nobr"> Unit Price </span></th>
+                                        <th class="product-stock-status"> <span class="nobr"> Quantity</span></th>
+                                        <th class="product-add-to-cart">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        double subTotal = 0;
+                                    }
+                                    @foreach (var item in Model.OrderProducts)
+                                    {
+                                        <tr>
+
+                                            <td>
+                                                @if (item.Product.Image != null)
+                                                {
+                                                    <a asp-controller="Products" asp-action="Details" asp-route-id="@item.Product.Id"><img width="200" src="@item.Product.Image" alt="@item.Product.Name" /></a>
+                                                }
+                                               
+                                            </td>
+                                            <td><a asp-controller="Products" asp-action="Details" asp-route-id="@item.Product.Id">@item.Product.Name </a></td>
+                                            <td>₹ @item.Product.FinalPrice</td>
+                                            <td>
+                                                @item.Quantity
+                                            </td>
+                                            <td>@(item.Product.FinalPrice * item.Quantity)</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+                    }
+
+                </div>
+            </article>
+        </section>
+    </div>
+    <dl class="row">
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index">Back to Orders</a>
+</div>

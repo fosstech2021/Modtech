@@ -1,0 +1,83 @@
+.header {
+  background-color: #f8f9fa;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.header .form-inline a .fa {
+  font-size: 20px;
+  color: darkgray;
+}
+
+.header .form-inline a .fa-headphones {
+  font-size: 20px;
+  color: darkgray;
+}
+
+.header .form-inline a .fa-youtube-play {
+  font-size: 20px;
+  color: darkgray;
+}
+
+.header .form-inline a .fa-plus {
+  font-size: 20px;
+  background-color: #2980b9;
+  padding: 16px;
+  color: #fff;
+  border-radius: 100%;
+  margin-left: 94px;
+}
+
+.navbar {
+  padding: 0px;
+}
+
+.navbar .navbar-nav {
+  margin-left: 5rem;
+}
+
+.navbar .navbar-nav .nav-item {
+  text-transform: uppercase;
+  font-size: 15px;
+  color: #444;
+  font-family: 'Roboto Slab', serif;
+  margin-right: 15px;
+  -webkit-transition: background-color .2s;
+  transition: background-color .2s;
+  font-weight: 800;
+}
+
+.navbar .navbar-nav .nav-item .book-appoint {
+  font-weight: 600;
+}
+
+.navbar .navbar-nav .dropdown-menu {
+  background: #F8F9FA;
+  font-size: 15px;
+  font-family: 'Roboto Slab', serif;
+  border: none;
+  font-weight: 800;
+}
+
+.navbar .navbar-nav .dropdown-menu .dropdown-item {
+  display: block;
+  width: 100%;
+  padding: .25rem 1.5rem;
+  clear: both;
+  font-weight: 800;
+  color: #444;
+  text-align: inherit;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0;
+}
+
+dropdown-menu show
+.navbar .navbar-nav .dropdown-menu .dropdown-item {
+  color: gray;
+}
+
+.navbar .navbar-nav .dropdown:hover > .dropdown-menu {
+  display: block;
+}
+/*# sourceMappingURL=header.css.map */

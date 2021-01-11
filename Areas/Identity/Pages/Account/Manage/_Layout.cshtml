@@ -1,0 +1,115 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>@ViewData["Title"] </title>
+
+    @await Component.InvokeAsync("Seo")
+    @await RenderSectionAsync("MetaTags", required: false)
+    <meta name="robots" content="index,follow" />
+    @await Component.InvokeAsync("Favicon")
+    <!-- Vendor Css-->
+    <link rel="stylesheet" href="~/theme/justin/assets/css/vendor.css" asp-append-version="true" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800&display=swap" rel="stylesheet">
+    <!-- Settings-panel -->
+    <link href="~/theme/justin/assets/css/settings.css" rel="stylesheet">
+
+    <!-- Custom style Css -->
+    <link href="~/theme/justin/assets/css/custom.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <!-- JustinTemplate style Css -->
+    <link rel="stylesheet" href="~/theme/justin/assets/css/justin-red.css" asp-append-version="true">
+    @await RenderSectionAsync("Styles", required: false)
+    <link href="~/theme/justin/assets/css/custom.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/about-us.css" rel="stylesheet" asp-append-version="true" />
+    <link href="https://fonts.googleapis.com/css2?family=Kufam&family=Playfair+Display&family=Tajawal:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kufam&family=Mukta:wght@200&family=Playfair+Display&family=Tajawal:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kufam&family=Mukta:wght@200&family=Playfair+Display&family=Russo+One&family=Tajawal:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300" rel="stylesheet" />
+    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+</head>
+
+<body>
+   
+    @await Component.InvokeAsync("Navigation")
+
+
+    @await RenderSectionAsync("Header", required: false);
+    
+
+<div class="container my-5">
+
+        <div class="row">
+            <div class="col-md-3">
+                <partial name="_ManageNav" />
+            </div>
+            <div class="col-md-9">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+    @await Component.InvokeAsync("Footer")
+    
+
+
+
+<!-- WhatsHelp.io widget -->
+@await Component.InvokeAsync("ChatBot")
+<!-- /WhatsHelp.io widget -->
+
+
+
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v6.0"></script>
+
+<script src="~/theme/justin/assets/js/vendor.js" asp-append-version="true" ></script>
+
+<!-- Map -->
+<script src="~/theme/justin/assets/js/map.js" asp-append-version="true" ></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD79MY72taVRlZVX2DU6L5PXOh3ezUUKMc&amp;callback=initMap" async="" defer=""></script>
+
+<!-- Contact Js -->
+<script src="~/theme/justin/assets/js/contact.js" asp-append-version="true" ></script>
+
+<!-- Custom Js -->
+<script src="~/theme/justin/assets/js/custom.js" asp-append-version="true" ></script>
+
+@await RenderSectionAsync("Scripts", required: false)
+
+
+@if (TempData["_alert.type"] != null)
+{
+    <script src="~/lib/notify/notify.min.js"></script>
+
+    <script>
+        $( document ).ready(function() {
+            $.notify('@TempData["_alert.title"]', '@TempData["_alert.type"]');
+        });
+
+    </script>
+}
+
+
+
+<script src="https://vjs.zencdn.net/7.8.4/video.js"></script>
+<script>
+    var video = $('video')[0];
+    $('button').click(function () {
+        if (video.paused) {
+            video.play();
+        }
+        else {
+            video.pause();
+        }
+    });
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+﻿@page
+@model BasePackageModule1.Areas.Identity.Pages.Account.Manage.AddressModel
+@{
+}
+
+<div class="row mb-3 mt-3">
+    <div class="col-sm-12 col-lg-12">
+        <a asp-area="Identity" asp-page="./AddNewAddress" class="btn btn-success text-start">Add New Address</a>
+    </div>
+</div>
+<div class="row">
+   
+    @foreach (var item in Model.Addresses)
+    {
+        <div class="col-md-6">
+            <div style="border: solid 1px gray; padding: 20px">
+                <h3>@item.Name @item.MobileNumber</h3>
+                <p>@item.MainAddress @item.City @item.State - @item.PinCode</p>
+                <br />
+                <a asp-area="Identity" asp-page="./EditAddress" asp-route-id="@item.Id" class="btn text-success">Edit</a>
+               @* <a asp-controller="Addresses" asp-action="Delete" asp-route-id="@item.Id" class="btn text-danger">Delete</a>*@
+                <a class="btn text-danger" onclick="return confirm('Are you sure you want to delete this item?');"
+                   asp-page-handler="Delete" asp-route-id="@item.Id">Delete</a>
+            </div>
+        </div>
+    }
+</div>

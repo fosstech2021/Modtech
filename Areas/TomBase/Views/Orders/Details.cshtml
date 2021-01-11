@@ -1,0 +1,163 @@
+﻿@model Order
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="col-sm-12">
+    <div class="card">
+        <div class="card-header">
+            <h5>Order</h5>
+        </div>
+        <div class="card-block">
+            <div class="row">
+                <div class="col-12">
+
+                    <h1>Details</h1>
+                    <div>
+                        <hr />
+                        <dl class="row">
+                            @* <dt class = "col-sm-2"> *@
+                            @*     @Html.DisplayNameFor(model => model.AddressId) *@
+                            @* </dt> *@
+                            @* <dd class = "col-sm-10"> *@
+                            @*     @Html.DisplayFor(model => model.AddressId) *@
+                            @* </dd> *@
+                            <dt class = "col-sm-2">
+                                @Html.DisplayNameFor(model => model.User.UserName)
+                            </dt>
+                            <dd class = "col-sm-10">
+                                <a asp-controller="Users" asp-action="Details" asp-route-id="@Model.UserId">@($"{Model.User.FirstName} {Model.User.LastName}")</a>
+                            </dd>
+                            <dt class = "col-sm-2">
+                                @Html.DisplayNameFor(model => model.PaymentId)
+                            </dt>
+                            <dd class = "col-sm-10">
+                                @Html.DisplayFor(model => model.PaymentId)
+                            </dd>
+                            <dt class = "col-sm-2">
+                                @Html.DisplayNameFor(model => model.TransactionId)
+                            </dt>
+                            <dd class = "col-sm-10">
+                                @Html.DisplayFor(model => model.TransactionId)
+                            </dd>
+                            <dt class = "col-sm-2">
+                                @Html.DisplayNameFor(model => model.PaymentStatus)
+                            </dt>
+                            <dd class = "col-sm-10">
+                                @Html.DisplayFor(model => model.PaymentStatus)
+                            </dd>
+                            <dt class = "col-sm-2">
+                                @Html.DisplayNameFor(model => model.Amount)
+                            </dt>
+                            <dd class = "col-sm-10">
+                                @Html.DisplayFor(model => model.Amount)
+                            </dd>
+                            <dt class = "col-sm-2">
+                                @Html.DisplayNameFor(model => model.Date)
+                            </dt>
+                            <dd class = "col-sm-10">
+                                @Html.DisplayFor(model => model.Date)
+                            </dd>
+                        </dl>
+                    </div>
+                    <h1>Address</h1>
+                    <div>
+                        <hr />
+                        <dl class="row">
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.Address.Name)
+                            </dt>
+                            <dd class = "col-sm-10">
+                                @Model.Address.Name
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.Address.MobileNumber)
+                            </dt>
+                            <dd class = "col-sm-10">
+                                @Model.Address.MobileNumber
+                            </dd>
+                            <dt class = "col-sm-2">
+                                @Html.DisplayNameFor(model => model.Address.PinCode)
+                            </dt>
+                            <dd class = "col-sm-10">
+                                @Model.Address.PinCode
+                            </dd>
+                            <dt class = "col-sm-2">
+                                @Html.DisplayNameFor(model => model.Address.Locality)
+                            </dt>
+                            <dd class = "col-sm-10">
+                                @Model.Address.Locality
+                            </dd>
+                            <dt class = "col-sm-2">
+                                @Html.DisplayNameFor(model => model.Address.MainAddress)
+                            </dt>
+                            <dd class = "col-sm-10">
+                                @Model.Address.MainAddress
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.Address.City)
+                            </dt>
+                            <dd class = "col-sm-10">
+                                @Model.Address.City
+                            </dd>
+                            <dt class = "col-sm-2">
+                                @Html.DisplayNameFor(model => model.Address.State)
+                            </dt>
+                            <dd class = "col-sm-10">
+                                @Model.Address.State
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.Address.Landmark)
+                            </dt>
+                            <dd class = "col-sm-10">
+                                @Model.Address.Landmark
+                            </dd>
+                            <dt class = "col-sm-2">
+                                @Html.DisplayNameFor(model => model.Address.AlternatePhone)
+                            </dt>
+                            <dd class = "col-sm-10">
+                                @Model.Address.AlternatePhone
+                            </dd>
+                        </dl>
+                        </div>
+                    
+                    <h1>Order Products</h1>
+                    <hr />
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Product Name</th>
+                            <th>Quantity</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach (var item in Model.OrderProducts)
+                        {
+                            <tr>
+                              
+                                <td>
+                                    <a asp-controller="Products" asp-action="Details" asp-route-id="@item.Product.Id"><img width="200" src="@item.Product.Image" alt="@item.Product.Name"/></a>
+                                </td>
+                                <td>
+                                    <a asp-controller="Products" asp-action="Details" asp-route-id="@item.Product.Id">@item.Product.Name</a>
+
+                                </td>
+                                <td>
+                                    @item.Quantity
+                                </td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+
+                    <div>
+                        <a class="btn btn-secondary" asp-action="Edit" asp-route-id="@Model.Id">Edit</a> 
+                        <a class="btn btn-primary" asp-action="Index">Back to List</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

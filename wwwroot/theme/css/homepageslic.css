@@ -1,0 +1,45 @@
+﻿
+.slider {
+    margin: 0 auto;
+    
+}
+
+.slide {
+  
+    overflow: hidden;
+}
+
+.slick-img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.slick-prev,
+.slick-next {
+    position: absolute;
+    top: 35%;
+    transform: translateY(-50%);
+    padding: 10px;
+    background-color:cadetblue;
+    text-transform: uppercase;
+    width: 60px;
+    cursor: pointer;
+
+}
+
+.slick-prev {
+    left: -150px;
+    height:auto;
+}
+
+.slick-next {
+    right: -150px;
+    height: auto;
+}
+
+*:focus {
+    outline:solid;
+}
+
+

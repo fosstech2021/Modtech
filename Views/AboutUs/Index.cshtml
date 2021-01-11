@@ -1,0 +1,77 @@
+﻿@model IEnumerable<BasePackageModule2.Models.AboutUs>
+
+    <section class="about-page">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6 col-sm-12 our-story">
+                    <div class="about-sec-wrapper mt-5">
+                        <h5 class="mb-3 mt-3">About Us</h5>
+                       
+                         @foreach(var about in Model)
+
+                         {
+                             @Html.Raw(about.Description)
+                         }
+
+
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12 about-second-half">
+
+
+                    <img src="~/Images/new/about-us1.jpg" />
+                  
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    
+    <section class="ima-area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 col-md-4 col-lg-4 p-0 m-0">
+                   
+                    <img src="~/Images/new/modteh-2.jpg" class="img-fluid" />
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-4 p-0 m-0">
+                  
+                    <img src="~/Images/new/modteh-3.jpg" class="img-fluid" />
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-4 p-0 m-0">
+                   
+                    <img src="~/Images/new/modteh4.jpg" class="img-fluid" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="best-eco">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 col-md-5">
+                    <div class="content-wrapper mt-5" >
+                        <h3 class="primary-title"> Best Quality Products</h3>
+                        <h6 class="sub-title">Modtech is dedicated to a philosophy of continuous improvemen</h6>
+                        <p class="primary-desc">
+                            Modtech is committed to providing quality products and services that meet or exceed customer requirements and expectations and to continually monitor, measure, and improve our Quality Management System.
+
+                            Vision statement: - Our vision is to give shape to your imagination in a simplified manner with optimum utilization of latest technology and manpower.
+
+                            B.H.A.G. (big hairy audacious goal) BHAG of Modtech is to become number 1 in technology in the metal cutting industries and to have an annual turnover of rs. 100cr.
+                        </p>
+                        <a href="/Products" class="btn" style="background-color:#121234;">Explore Products</a>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-7 lemonade">
+
+                    
+                    <img src="~/Images/new/img-7.jpg" class="img-fluid" />
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+

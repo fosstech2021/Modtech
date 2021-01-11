@@ -1,0 +1,55 @@
+﻿@model BasePackageModule1.Controllers.CheckoutController.PaymentModes
+
+<div class="container">
+    <div class="row mt-5 mb-5">
+        <div class="col-md-6 offset-md-2">
+            <h4>Checkout Option</h4> 
+            <form asp-action="CheckOutOptions" method="post">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group form-check mt-2 mb-2">
+                    <label class="form-check-label">
+                        <input id="payOnline" value="payOnline" type="radio" asp-for="PaymentMode" class="form-check-input"> Pay Online
+                    </label>
+                </div>
+
+                <div class="form-group form-check mt-2 mb-2">
+                    <label class="form-check-label">
+                        <input id="payAtShop" value="payAtShop" type="radio" asp-for="PaymentMode" class="form-check-input"> Pay at Shop
+                    </label>
+                </div>
+                <button type="submit" class=" btn btn-primary btn-block">Confirm Order</button>
+            </form>
+        </div>
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title text-center text-primary">Order Summary</h5>
+                    <hr />
+                    <ul class="order-summary">
+                        <li>Items:	  <span class="float-right">₹ @ViewBag.Items</span></li>
+                        <li> Delivery:<span class="float-right">₹ 00</span></li>
+                        <li>Total:	   <span class="float-right">₹ @ViewBag.Items</span></li>
+                        <li>Promotion Applied:	-  <span class="float-right">₹ 00</span></li>
+                        <hr />
+                        <li><h5 class="text-primary">Order Total:<span class="float-right">₹ @ViewBag.Items</span></h5></li>
+                    </ul>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script>
+     
+        $(document).ready(function() {
+            //$( "form" ).on( "submit", function( event ) {
+            //    event.preventDefault();
+            //    console.log( $( this ).serialize() );
+            //});
+        });
+    </script>
+}

@@ -1,0 +1,72 @@
+﻿@using BasePackageModule2.Models
+@model BasePackageModule2.Models.Post
+@{
+    ViewData["Title"] = @Model.Title;
+}
+
+@section MetaTags
+{
+    <meta name="keywords" content="@Model.MetaKeywords" />
+    <meta name="description" content="@Model.MetaDescription" />
+}
+
+<div class="section py-5">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-8">
+                <div class="section-row sticky-container">
+                    <div class="main-post">
+                        <h3 class="py-2">@Model.Title</h3>
+                           
+                        <figure class="figure-img py-4">
+                            <img class="img-fluid" style="width: 42rem;
+    height: 21rem;
+" src="@Model.Image" alt="">
+                        </figure>
+                        
+                        @Html.Raw(Model.Content)
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                 
+
+                <div class="aside-widget">
+                    <div class="section-title">
+                        <h2>Most Recent Posts</h2>
+                    </div>
+                    
+                    @foreach (Post post in ViewBag.Posts)
+                    {
+                        <div class="post post-widget" style="    margin-bottom: 40px;">
+                            <a class="post-img" style="    width: 90px; display: block ; float: left;  margin-right: 15px;" asp-controller="Blog" asp-action="Details" asp-route-id="@post.Id" asp-route-slug="@post.Slug">
+                                <img height="90" width="90" src="@post.Image" alt="@post.Title">
+                            </a>
+                            <div class="post-body">
+                                <h3 class="post-title" style=" font-weight: 700; color: #212631; margin: 0 0 15px;">
+                                    <a style="font-weight: 600; color: #212631;  text-decoration: none;" asp-controller="Blog" asp-action="Details" asp-route-id="@post.Id" asp-route-slug="@post.Slug">@post.Title</a>
+                                </h3>
+                            </div>
+                        </div>
+                        <div style="content: ''; display: block; clear: both;"></div>
+                        <hr/>
+                    }
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

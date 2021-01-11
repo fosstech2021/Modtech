@@ -1,0 +1,13 @@
+#all-header-section {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(53, 52, 52, 0.466)), to(rgba(17, 17, 17, 0.192))), url(../img/outside-background.jpg);
+  background: linear-gradient(rgba(53, 52, 52, 0.466), rgba(17, 17, 17, 0.192)), url(outside-background.jpg);
+}
+
+#all-header-section .container-fluid .row .col-12 .display-3 {
+  border-bottom-style: solid;
+  border-bottom-width: thick;
+  margin-bottom: -1px;
+  width: 23%;
+  border-color: #72ABD8;
+}
+/*# sourceMappingURL=header-part.css.map */

@@ -1,0 +1,65 @@
+﻿@model Order
+
+@{
+    ViewData["Title"] = "Create";
+}
+<div class="col-sm-12">
+    <!-- Basic Form Inputs card start -->
+    <div class="card">
+        <div class="card-header">
+
+            <h1>Add</h1>
+            <h4>Order</h4>
+            <hr />
+
+            <div class="card-header-right">
+                <i class="icofont icofont-spinner-alt-5"></i>
+            </div>
+
+        </div>
+        <div class="card-block">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="AddressId" class="control-label"></label>
+                    <input asp-for="AddressId" class="form-control" />
+                    <span asp-validation-for="AddressId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="UserId" class="control-label"></label>
+                    <input asp-for="UserId" class="form-control" />
+                    <span asp-validation-for="UserId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PaymentId" class="control-label"></label>
+                    <input asp-for="PaymentId" class="form-control" />
+                    <span asp-validation-for="PaymentId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TransactionId" class="control-label"></label>
+                    <input asp-for="TransactionId" class="form-control" />
+                    <span asp-validation-for="TransactionId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PaymentStatus" class="control-label"></label>
+                    <input asp-for="PaymentStatus" class="form-control" />
+                    <span asp-validation-for="PaymentStatus" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Amount" class="control-label"></label>
+                    <input asp-for="Amount" class="form-control" />
+                    <span asp-validation-for="Amount" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Basic Form Inputs card end -->
+   
+</div>
+   
+<div>
+    <a asp-action="Index" class="btn btn-primary">Back to List</a>
+</div>

@@ -1,0 +1,496 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>aspnet-BasePackage1._0-FCA68049-41D3-4628-B6C2-636ED5BA2C27</UserSecretsId>
+    <RootNamespace>TomBase</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Areas\TomBase\Data\**" />
+    <Content Remove="Areas\TomBase\Data\**" />
+    <EmbeddedResource Remove="Areas\TomBase\Data\**" />
+    <None Remove="Areas\TomBase\Data\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200627024404_stateAdded.cs" />
+    <Compile Remove="Migrations\20200627024404_stateAdded.Designer.cs" />
+    <Compile Remove="Migrations\20200703095829_Prouct Model changed.cs" />
+    <Compile Remove="Migrations\20200703095829_Prouct Model changed.Designer.cs" />
+    <Compile Remove="Migrations\20200703130545_CategorySetNull.cs" />
+    <Compile Remove="Migrations\20200703130545_CategorySetNull.Designer.cs" />
+    <Compile Remove="Migrations\20200706145958_Ecommerce.cs" />
+    <Compile Remove="Migrations\20200706145958_Ecommerce.Designer.cs" />
+    <Compile Remove="Migrations\20200706151550_UserChanged.cs" />
+    <Compile Remove="Migrations\20200706151550_UserChanged.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="compilerconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="compilerconfig.json" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\app.css" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="font-awesome" Version="4.7.0" />
+    <PackageReference Include="MailKit" Version="2.7.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" Version="3.1.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="3.1.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NETCore.Runtime" Version="1.0.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.3" />
+    <PackageReference Include="RazorPay.Core" Version="1.0.2" />
+    <PackageReference Include="SendGrid" Version="9.18.0" />
+    <PackageReference Include="SharpInstaMojo" Version="1.1.0" />
+    <PackageReference Include="SharpScss" Version="2.0.0" />
+    <PackageReference Include="Stripe.net" Version="37.16.0" />
+    <PackageReference Include="X.PagedList" Version="8.0.7" />
+    <PackageReference Include="X.PagedList.Mvc.Core" Version="8.0.7" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Content Update="Areas\TomBase\Views\Products\Create.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\TomBase\Views\Products\Delete.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\TomBase\Views\Products\Details.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\TomBase\Views\Products\Edit.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\TomBase\Views\Products\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\TomBase\Views\Shared\_LoginPartial.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Home\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Products\Details.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Products\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Products\Show.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Shared\_ItemAreaPartial.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Shared\_LoginPartial.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <None Include="Areas\TomBase\Views\Orders\Details.cshtml" />
+    <None Include="Areas\TomBase\Views\Orders\Index.cshtml" />
+    <None Include="Areas\TomBase\Views\Subscribers\Create.cshtml" />
+    <None Include="Areas\TomBase\Views\Subscribers\Delete.cshtml" />
+    <None Include="Areas\TomBase\Views\Subscribers\Edit.cshtml" />
+    <None Include="Areas\TomBase\Views\Subscribers\Index.cshtml" />
+    <None Include="Areas\TomBase\Views\Users\Index.cshtml" />
+    <None Include="compilerconfig.json" />
+    <None Include="Views\Cart\Index.cshtml" />
+    <None Include="Views\Categories\Index.cshtml" />
+    <None Include="Views\Checkout\Address.cshtml" />
+    <None Include="Views\Checkout\Payment.cshtml" />
+    <None Include="Views\Checkout\PaymentFailed.cshtml" />
+    <None Include="Views\Checkout\ThankYou.cshtml" />
+    <None Include="Views\Orders\Details.cshtml" />
+    <None Include="Views\Orders\Index.cshtml" />
+    <None Include="Views\Shared\Components\Category\Index.cshtml" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\.babelrc.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\.browserslistrc" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\.editorconfig" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\.eslintignore" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\.gitattributes" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\.github\CODEOWNERS" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\.github\CONTRIBUTING.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\.github\ISSUE_TEMPLATE\bug.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\.github\ISSUE_TEMPLATE\bug_report.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\.github\ISSUE_TEMPLATE\feature.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\.github\ISSUE_TEMPLATE\feature_request.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\.github\SUPPORT.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\.github\workflows\codeql.yml" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\.github\workflows\test.yml" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\.gitignore" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\.stylelintignore" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\.stylelintrc" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\build\babel-helpers.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\build\banner.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\build\build-plugins.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\build\change-version.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\build\generate-sri.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\build\postcss.config.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\build\rollup.config.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\build\ship.sh" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\build\svgo.yml" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\build\vnu-jar.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\build\zip-examples.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\CNAME" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\CODE_OF_CONDUCT.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\dist\css\bootstrap-grid.css.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\dist\css\bootstrap-grid.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\dist\css\bootstrap-reboot.css.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\dist\css\bootstrap-reboot.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\dist\css\bootstrap.css.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\dist\css\bootstrap.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\dist\js\bootstrap.bundle.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\dist\js\bootstrap.bundle.js.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\dist\js\bootstrap.bundle.min.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\dist\js\bootstrap.bundle.min.js.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\dist\js\bootstrap.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\dist\js\bootstrap.js.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\dist\js\bootstrap.min.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\dist\js\bootstrap.min.js.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\Gemfile" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\Gemfile.lock" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\alert.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\alert.js.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\button.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\button.js.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\carousel.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\carousel.js.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\collapse.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\collapse.js.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\dropdown.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\dropdown.js.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\index.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\index.js.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\modal.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\modal.js.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\popover.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\popover.js.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\scrollspy.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\scrollspy.js.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\tab.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\tab.js.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\toast.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\toast.js.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\tooltip.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\tooltip.js.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\util.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\util.js.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\src\alert.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\src\button.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\src\carousel.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\src\collapse.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\src\dropdown.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\src\index.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\src\modal.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\src\popover.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\src\scrollspy.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\src\tab.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\src\toast.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\src\tools\sanitizer.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\src\tooltip.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\src\util.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\tests\browsers.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\tests\integration\bundle.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\tests\integration\rollup.bundle.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\tests\karma.conf.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\tests\README.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\tests\unit\alert.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\tests\unit\button.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\tests\unit\carousel.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\tests\unit\collapse.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\tests\unit\dropdown.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\tests\unit\modal.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\tests\unit\popover.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\tests\unit\scrollspy.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\tests\unit\tab.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\tests\unit\toast.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\tests\unit\tooltip.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\tests\unit\util.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\LICENSE" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\nuget\bootstrap.nuspec" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\nuget\bootstrap.sass.nuspec" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\nuget\MyGet.ps1" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\package.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\README.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\bootstrap-grid.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\bootstrap-reboot.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\bootstrap.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_alert.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_background-variant.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_badge.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_border-radius.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_box-shadow.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_breakpoints.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_buttons.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_caret.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_clearfix.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_deprecate.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_float.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_forms.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_gradients.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_grid-framework.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_grid.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_hover.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_image.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_list-group.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_lists.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_nav-divider.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_pagination.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_reset-text.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_resize.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_screen-reader.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_size.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_table-row.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_text-emphasis.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_text-hide.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_text-truncate.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_transition.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_visibility.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\utilities\_align.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\utilities\_background.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\utilities\_borders.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\utilities\_clearfix.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\utilities\_display.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\utilities\_embed.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\utilities\_flex.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\utilities\_float.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\utilities\_interactions.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\utilities\_overflow.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\utilities\_position.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\utilities\_screenreaders.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\utilities\_shadows.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\utilities\_sizing.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\utilities\_spacing.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\utilities\_stretched-link.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\utilities\_text.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\utilities\_visibility.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\vendor\_rfs.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_alert.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_badge.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_breadcrumb.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_button-group.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_buttons.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_card.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_carousel.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_close.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_code.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_custom-forms.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_dropdown.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_forms.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_functions.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_grid.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_images.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_input-group.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_jumbotron.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_list-group.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_media.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_mixins.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_modal.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_nav.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_navbar.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_pagination.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_popover.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_print.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_progress.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_reboot.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_root.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_spinners.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_tables.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_toasts.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_tooltip.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_transitions.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_type.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_utilities.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_variables.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\SECURITY.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\about\brand.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\about\license.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\about\overview.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\about\team.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\about\translations.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\brand\bootstrap-outline.svg" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\brand\bootstrap-punchout.svg" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\brand\bootstrap-solid.svg" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\css\docs.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\img\favicons\safari-pinned-tab.svg" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\js\docs.min.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\js\src\application.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\js\src\ie-emulation-modes-warning.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\js\src\search.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\js\vendor\anchor.min.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\js\vendor\bs-custom-file-input.min.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\js\vendor\clipboard.min.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\js\vendor\jquery.slim.min.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\scss\docs.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\scss\_ads.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\scss\_algolia.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\scss\_anchor.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\scss\_brand.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\scss\_browser-bugs.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\scss\_buttons.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\scss\_callouts.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\scss\_clipboard-js.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\scss\_colors.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\scss\_component-examples.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\scss\_content.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\scss\_footer.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\scss\_masthead.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\scss\_nav.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\scss\_placeholder-img.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\scss\_sidebar.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\scss\_skippy.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\scss\_syntax.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\scss\_variables.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\browser-bugs.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\alerts.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\badge.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\breadcrumb.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\button-group.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\buttons.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\card.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\carousel.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\collapse.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\dropdowns.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\forms.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\input-group.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\jumbotron.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\list-group.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\media-object.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\modal.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\navbar.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\navs.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\pagination.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\popovers.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\progress.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\scrollspy.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\spinners.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\toasts.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\tooltips.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\content\code.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\content\figures.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\content\images.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\content\reboot.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\content\tables.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\content\typography.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\examples\.stylelintrc" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\examples\checkout\form-validation.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\examples\dashboard\dashboard.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\examples\offcanvas\offcanvas.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\extend\approach.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\extend\icons.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\getting-started\accessibility.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\getting-started\best-practices.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\getting-started\browsers-devices.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\getting-started\build-tools.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\getting-started\contents.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\getting-started\download.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\getting-started\introduction.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\getting-started\javascript.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\getting-started\theming.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\getting-started\webpack.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\layout\grid.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\layout\overview.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\layout\utilities-for-layout.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\migration.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\utilities\borders.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\utilities\clearfix.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\utilities\close-icon.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\utilities\colors.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\utilities\display.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\utilities\embed.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\utilities\flex.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\utilities\float.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\utilities\image-replacement.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\utilities\interactions.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\utilities\overflow.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\utilities\position.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\utilities\screen-readers.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\utilities\shadows.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\utilities\sizing.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\utilities\spacing.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\utilities\stretched-link.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\utilities\text.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\utilities\vertical-align.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\utilities\visibility.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\sw.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_data\breakpoints.yml" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_data\browser-bugs.yml" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_data\browser-features.yml" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_data\colors.yml" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_data\core-team.yml" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_data\docs-versions.yml" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_data\examples.yml" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_data\grays.yml" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_data\nav.yml" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_data\theme-colors.yml" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_data\translations.yml" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_includes\callout-danger-async-methods.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_includes\callout-info-mediaqueries-breakpoints.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_includes\callout-info-prefersreducedmotion.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_includes\callout-warning-color-assistive-technologies.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_includes\icons\bootstrap-stack.svg" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_includes\icons\bootstrap.svg" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_includes\icons\circle-square.svg" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_includes\icons\cloud-fill.svg" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_includes\icons\code.svg" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_includes\icons\droplet-fill.svg" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_includes\icons\github.svg" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_includes\icons\menu.svg" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_includes\icons\opencollective.svg" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_includes\icons\placeholder.svg" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_includes\icons\slack.svg" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_includes\icons\twitter.svg" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\_config.yml" />
+    <None Include="wwwroot\theme\justin\assets\js\contact.js" />
+    <None Include="wwwroot\theme\justin\assets\js\custom-shuffle-init.js" />
+    <None Include="wwwroot\theme\justin\assets\js\custom.js" />
+    <None Include="wwwroot\theme\justin\assets\js\imagesloaded.pkgd.js" />
+    <None Include="wwwroot\theme\justin\assets\js\jquery.mb.YTPlayer.js" />
+    <None Include="wwwroot\theme\justin\assets\js\jquery.ripples-min.js" />
+    <None Include="wwwroot\theme\justin\assets\js\map.js" />
+    <None Include="wwwroot\theme\justin\assets\js\particles.min.js" />
+    <None Include="wwwroot\theme\justin\assets\js\particlesjs-config-2.js" />
+    <None Include="wwwroot\theme\justin\assets\js\particlesjs-config-3.js" />
+    <None Include="wwwroot\theme\justin\assets\js\particlesjs-config-4.js" />
+    <None Include="wwwroot\theme\justin\assets\js\particlesjs-config.js" />
+    <None Include="wwwroot\theme\justin\assets\js\vendor.js" />
+    <None Include="wwwroot\theme\justin\assets\webfonts\fa-brands-400.svg" />
+    <None Include="wwwroot\theme\justin\assets\webfonts\fa-brands-400.woff2" />
+    <None Include="wwwroot\theme\justin\assets\webfonts\fa-regular-400.svg" />
+    <None Include="wwwroot\theme\justin\assets\webfonts\fa-regular-400.woff2" />
+    <None Include="wwwroot\theme\justin\assets\webfonts\fa-solid-900.svg" />
+    <None Include="wwwroot\theme\justin\assets\webfonts\fa-solid-900.woff2" />
+  </ItemGroup>
+
+</Project>

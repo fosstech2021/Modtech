@@ -1,0 +1,47 @@
+﻿@model BasePackageModule1.Areas.TomBase.ViewModels.Colors
+
+@{
+    ViewData["Title"] = "Colors";
+}
+
+<div class="col-sm-12">
+    <!-- Basic Form Inputs card start -->
+    <div class="card">
+        <div class="card-header">
+            <h1>Choose Colors <a class="btn btn-danger float-right" asp-controller="Colors" asp-action="Reset">Reset Colors</a></h1>
+            <hr />
+            <form asp-action="Update">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="PrimaryColor"></label>
+                    <input asp-for="PrimaryColor"  class="form-control" />
+                    <span asp-validation-for="PrimaryColor" class="text-danger"></span>
+
+
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Submit" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@section styles
+{
+    <link href="~/lib/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css" rel="stylesheet">
+}
+
+@section Scripts
+{
+    <script src="~/lib/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+
+
+    <script>
+        $(function () {
+            // Basic instantiation:
+            $('#PrimaryColor').colorpicker();
+        });
+    </script>
+}

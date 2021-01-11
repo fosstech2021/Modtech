@@ -1,0 +1,131 @@
+﻿@model BasePackageModule2.Models.BusinessProfile
+<div class="col-sm-12">
+    <!-- Basic Form Inputs card start -->
+    <div class="card">
+        <div class="card-header">
+
+            <h1>Business Profile</h1>
+            <hr />
+            <div asp-validation-summary="All" class="text-danger"></div>
+            
+
+        </div>
+        <div class="card-block">
+             <form asp-action="Index">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                 <input type="hidden" asp-for="Id" />
+
+            <div class="form-group required">
+                <label asp-for="BusinessName" class="control-label"></label>
+                <input asp-for="BusinessName" class="form-control" />
+                <span asp-validation-for="BusinessName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group required">
+                <label asp-for="EmailAddress" class="control-label"></label>
+                <input asp-for="EmailAddress" class="form-control" />
+                <span asp-validation-for="EmailAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group required">
+                <label asp-for="RegisteredContactNumber" class="control-label"></label>
+                <input asp-for="RegisteredContactNumber" class="form-control" />
+                <span asp-validation-for="RegisteredContactNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AlternateContactNumber" class="control-label"></label>
+                <input asp-for="AlternateContactNumber" class="form-control" />
+                <span asp-validation-for="AlternateContactNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DisplayContact1" class="control-label"></label>
+                <input asp-for="DisplayContact1" class="form-control" />
+                <span asp-validation-for="DisplayContact1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DisplayContact2" class="control-label"></label>
+                <input asp-for="DisplayContact2" class="form-control" />
+                <span asp-validation-for="DisplayContact2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DisplayContact3" class="control-label"></label>
+                <input asp-for="DisplayContact3" class="form-control" />
+                <span asp-validation-for="DisplayContact3" class="text-danger"></span>
+            </div>
+            <div class="form-group required">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+                 <div class="form-group required">
+                     <label asp-for="City" class="control-label"></label>
+                     <input asp-for="City" class="form-control" />
+                     <span asp-validation-for="City" class="text-danger"></span>
+                 </div>
+                 <div class="form-group required">
+                     <label asp-for="State" class="control-label"></label>
+                     <input asp-for="State" class="form-control" />
+                     <span asp-validation-for="State" class="text-danger"></span>
+                 </div>
+            <div class="form-group required">
+                <label asp-for="Country" class="control-label"></label>
+                <input asp-for="Country" class="form-control" />
+                <span asp-validation-for="Country" class="text-danger"></span>
+            </div>
+            <div class="form-group required">
+                <label asp-for="Pincode" class="control-label"></label>
+                <input asp-for="Pincode" class="form-control" />
+                <span asp-validation-for="Pincode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WhatsAppForBusinessNumber" class="control-label"></label>
+                <input asp-for="WhatsAppForBusinessNumber" class="form-control" />
+                <span asp-validation-for="WhatsAppForBusinessNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FacebookPageURL" class="control-label"></label>
+                <input asp-for="FacebookPageURL" class="form-control" />
+                <span asp-validation-for="FacebookPageURL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InstagramPageURL" class="control-label"></label>
+                <input asp-for="InstagramPageURL" class="form-control" />
+                <span asp-validation-for="InstagramPageURL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TwitterURL" class="control-label"></label>
+                <input asp-for="TwitterURL" class="form-control" />
+                <span asp-validation-for="TwitterURL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LinkedInURL" class="control-label"></label>
+                <input asp-for="LinkedInURL" class="form-control" />
+                <span asp-validation-for="LinkedInURL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="YoutubeURL" class="control-label"></label>
+                <input asp-for="YoutubeURL" class="form-control" />
+                <span asp-validation-for="YoutubeURL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OtherWebsite" class="control-label"></label>
+                <input asp-for="OtherWebsite" class="form-control" />
+                <span asp-validation-for="OtherWebsite" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Copyright" class="control-label"></label>
+                <input asp-for="Copyright" class="form-control" />
+                <span asp-validation-for="Copyright" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+        </div>
+    </div>
+
+</div>
+

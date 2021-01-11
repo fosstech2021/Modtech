@@ -1,0 +1,93 @@
+﻿@model BasePackageModule2.Models.Seo
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="col-sm-12">
+    <!-- Basic Form Inputs card start -->
+    <div class="card">
+        <div class="card-header">
+
+            <h1>Create</h1>
+            
+            <hr />
+            <div asp-validation-summary="All" class="text-danger"></div>
+            
+
+        </div>
+        <div class="card-block">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="MetaTitle" class="control-label"></label>
+                    <input asp-for="MetaTitle" class="form-control" />
+                    <span asp-validation-for="MetaTitle" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="MetaDiscription" class="control-label"></label>
+                    <input asp-for="MetaDiscription" class="form-control" />
+                    <span asp-validation-for="MetaDiscription" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CanonicalTag" class="control-label"></label>
+                    <input asp-for="CanonicalTag" class="form-control" />
+                    <span asp-validation-for="CanonicalTag" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="OgTitle" class="control-label"></label>
+                    <input asp-for="OgTitle" class="form-control" />
+                    <span asp-validation-for="OgTitle" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="OgDescription" class="control-label"></label>
+                    <input asp-for="OgDescription" class="form-control" />
+                    <span asp-validation-for="OgDescription" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="OgUrl" class="control-label"></label>
+                    <input asp-for="OgUrl" class="form-control" />
+                    <span asp-validation-for="OgUrl" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="OgSiteName" class="control-label"></label>
+                    <input asp-for="OgSiteName" class="form-control" />
+                    <span asp-validation-for="OgSiteName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="MetaTwitter" class="control-label"></label>
+                    <input asp-for="MetaTwitter" class="form-control" />
+                    <span asp-validation-for="MetaTwitter" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="MetaTwitterDescription" class="control-label"></label>
+                    <input asp-for="MetaTwitterDescription" class="form-control" />
+                    <span asp-validation-for="MetaTwitterDescription" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TwitterTitle" class="control-label"></label>
+                    <input asp-for="TwitterTitle" class="form-control" />
+                    <span asp-validation-for="TwitterTitle" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="MsValidate" class="control-label"></label>
+                    <input asp-for="MsValidate" class="form-control" />
+                    <span asp-validation-for="MsValidate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="GSiteVerivation" class="control-label"></label>
+                    <input asp-for="GSiteVerivation" class="form-control" />
+                    <span asp-validation-for="GSiteVerivation" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+

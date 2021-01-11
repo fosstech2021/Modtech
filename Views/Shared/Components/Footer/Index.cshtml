@@ -1,0 +1,157 @@
+﻿@model BasePackageModule2.ViewModels.NavViewModel
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<!-- START: CONTACT -->
+<section class="section section-dark section-contact" id="contact">
+    <div class="container">
+        <div class="section-head">
+            <span>For Bulk Orders Contact Us</span>
+            <h2>Contact</h2>
+        </div>
+
+    </div>
+
+    <div class="contact-Otherdetails">
+        <div class="container">
+            <div class="contact-details">
+              
+                <div class="row">
+                    <div class="col-md-4 col-lg-4">
+                        <div class="contact-details--panel p-4 b-box text-center hover-state wow fadeInUp" data-wow-duration="1.5s">
+                            <div class="mb-4">
+                                <i class="fas fa-map-marked-alt"></i>
+                                <p class="mt-1 font-weight-bold ">Address</p>
+                            </div>
+                            <div class="mt-2">
+                                <a href="#" class="">@Model.BusinessProfile.Address</a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <div class="contact-details--panel p-4 b-box text-center hover-state wow fadeInUp" data-wow-duration="1.5s">
+                            <div class="mb-4">
+                                <i class="fas fa-mobile-alt  "></i>
+                                <p class="mt-1 font-weight-bold ">Call Us</p>
+                            </div>
+                            <div class="mt-2">
+                                <a href="tel:@Model.BusinessProfile.DisplayContact1" class="">@Model.BusinessProfile.DisplayContact1</a>
+                               
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <div class="contact-details--panel p-4 b-box text-center hover-state wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".2s">
+                            <div class="mb-4">
+                                <i class="fas fa-envelope  "></i>
+                                <p class="mt-1 font-weight-bold ">Email Us</p>
+                            </div>
+                            <div class="mt-2">
+                                <a href="mailto:@Model.BusinessProfile.EmailAddress">@Model.BusinessProfile.EmailAddress</a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+<!-- END: CONTACT -->
+
+<footer>
+    <div class="container ">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="footer-box org">
+                    <div class="box-icon">
+                        <img src="https://flavarich.com/wp-content/themes/flavarich/img/icon-customercare.png" alt="">
+                    </div>
+                    <div class="box-text">
+                        <h3>Customer<br>Care</h3>
+                        <p>@Model.BusinessProfile.DisplayContact1<br><small>(Mon-Sat | 10am-5pm)</small></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="footer-box grn">
+                    <div class="box-icon">
+                        <img src="https://flavarich.com/wp-content/themes/flavarich/img/icon-delivery.png" alt="">
+                    </div>
+                    <div class="box-text">
+                        <h3>Distribution<br>Enquiry</h3>
+                        <p><a href="/Home/Contact" >Know More</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="col-sm-4">
+              <div class="footer-box red">
+                <div class="box-icon">
+                  <img src="/img/icon-join.png" alt="" />
+                </div>
+                <div class="box-text">
+                  <h3>Enroll to Flavarich<br />Membership</h3>
+                  <p><a href="/membership">Know More</a></p>
+                </div>
+              </div>
+            </div> -->
+        </div>
+
+        
+        <div class="row low-breathe" style=" border-top: 1px solid gray; padding-top: 20px;">
+            <div class="col-sm-2">
+                <p><strong>More About Modtech</strong></p>
+                <ul>
+                   <li>
+                       <img src="@Model.Logo.FooterLogo" />
+                   </li>
+
+                </ul>
+            </div>
+            <div class="col-sm-2">
+                <p class="text-white"><strong>Categories</strong></p>
+                <ul>
+                    @foreach (var menu in Model.Menus)
+                    {
+                        if (menu.Type == "categoryCollection")
+                        {
+                            @foreach (var menuCategory in menu.MenuCategories)
+                            {
+                                <li class="nav-item"><a class="nav-link text-white" asp-action="Index" asp-controller="Products" asp-route-category="@menuCategory.Category.Name"> @menuCategory.Category.Name </a></li>
+                            }
+                        }
+                    }
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <p><strong>&nbsp;</strong> Quick Links</p>
+                <ul style="margin-left:13px;">
+                    @foreach (var menu in Model.Menus)
+                    {
+                        if (menu.Type == "interLink" || menu.Type == null)
+                        {
+                            <li><a href="@menu.Url">@menu.Name</a></li>
+                        }
+                    }
+                </ul>
+            </div>
+            <div class="col-sm-5">
+                Follow us on:
+                <ul class="social">
+                    <li><a href="@Model.BusinessProfile.FacebookPageURL"><i class="fa fa-facebook" style=" margin-top: 6px;"></i></a></li>
+                    <li><a href="@Model.BusinessProfile.InstagramPageURL"><i class="fa fa-instagram" style=" margin-top: 6px;"></i></a></li>
+                    <li><a href="@Model.BusinessProfile.TwitterURL"><i class="fa fa-twitter" style=" margin-top: 6px;"></i></a></li>
+                </ul>
+                
+            </div>
+        </div>
+
+        <p class="text-center">
+            All Rights Reserved
+            @Model.BusinessProfile.Copyright.
+        </p>
+    </div>
+</footer>

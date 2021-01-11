@@ -1,0 +1,216 @@
+﻿@model BasePackageModule2.Models.Product
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="col-sm-12">
+    <div class="card">
+        <div class="card-header">
+
+
+            <h4>Update Product</h4>
+            <hr />
+            <div asp-validation-summary="All" class="text-danger"></div>
+            
+
+        </div>
+        <div class="card-block">
+            <form asp-action="Edit" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="CategoryId" class="control-label"></label>
+                    <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId">
+                        <option value="">---None---</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="SubCategoryId" class="control-label"></label>
+                    <select asp-for="SubCategoryId" class="form-control" asp-items="ViewBag.SubCategoryId">
+                        <option value="">---None---</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="row">
+                    <div class="col-md-12"><h3 class="control-label text-center">Main Image</h3></div>
+                    <div class="form-group col-md-6">
+                        <input type="file" accept="image/*" name="mainImage" class="form-control" />
+                        <span asp-validation-for="Image" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <img width="200" src="@Model.Image" alt="@Model.Name" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12"><h3 class="control-label text-center">Product Images</h3></div>
+                    <div class="col-md-6 form-group">
+                        <input type="file" name="images" multiple accept="image/*" class="form-control">
+                        <span asp-validation-for="Images" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        @if (Model.Images.Any())
+                        {
+            <div class="row">
+                @foreach (var image in Model.Images)
+                {
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <div class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
+                     data-image="@image.Img"
+                     data-target="#image-gallery">
+                    <img class="img-thumbnail"
+                         src="@image.Img"
+                         alt="Another alt text">
+                </div>
+                <div>
+                    <a asp-action="DeleteProductImage" asp-route-imageId="@image.Id" asp-route-productId="@Model.Id" style="position: absolute; top: 0; right: 20px;" class="text-danger"><i class="fa fa-trash"></i></a>
+                </div>
+            </div>}
+            </div>}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ShortDescription" class="control-label"></label>
+                    <textarea asp-for="ShortDescription" class="form-control"></textarea>
+                    <span asp-validation-for="ShortDescription" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label"></label>
+                    <textarea id="Description" asp-for="Description" class="form-control"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+
+                <div class="form-group">
+                    <label asp-for="BasePrice" class="control-label"></label>
+                    <input asp-for="BasePrice" class="form-control" />
+                    <span asp-validation-for="BasePrice" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DiscountAmount" class="control-label"></label>
+                    <input asp-for="DiscountAmount" class="form-control" />
+                    <span asp-validation-for="DiscountAmount" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FinalPrice" class="control-label"></label>
+                    <input id="FinalPrice" value="@Model.FinalPrice" class="form-control" disabled="disabled" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ProductTags" class="control-label"></label>
+                    <input asp-for="ProductTags" data-role="tagsinput" class="form-control" />
+                    <span asp-validation-for="ProductTags" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="SortOrder" class="control-label"></label>
+                    <input asp-for="SortOrder" class="form-control" />
+                    <span asp-validation-for="SortOrder" class="text-danger"></span>
+                </div>
+
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="FreeShipping" /> @Html.DisplayNameFor(model => model.FreeShipping)
+                    </label>
+                </div>
+
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Status" /> @Html.DisplayNameFor(model => model.Status)
+                    </label>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Update Product" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+</div>
+
+
+
+@section styles
+{
+    <link href="~/lib/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet" />
+}
+
+@section Scripts {
+    <script src="~/lib/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script type="text/javascript" src="/lib/tinymce/tinymce.min.js"></script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: '#Description',
+            height: 400,
+            plugins: [
+                'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
+                'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+                'table emoticons template paste help'
+            ],
+            toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify |' +
+                'fontselect fontsizeselect | forecolor backcolor' +
+                ' bullist numlist outdent indent | link image | print preview media fullpage | ' +
+                'forecolor backcolor emoticons | help',
+            menu: {
+                favs: { title: 'My Favorites', items: 'code visualaid | searchreplace | spellchecker | emoticons' }
+            },
+            menubar: 'favs file edit view insert format tools table help',
+        });</script>
+
+
+    <script type="text/javascript">
+
+    $(document).ready(function () {
+        var BasePrice = $("#BasePrice");
+        var DiscountedPrice = $("#DiscountAmount");
+            
+        var FinalPrice = $("#FinalPrice");
+
+        console.log(BasePrice, DiscountedPrice, FinalPrice)
+
+        BasePrice.on('change', function () {
+            console.log(DiscountedPrice.val())
+            FinalPrice.val(this.value - DiscountedPrice.val());
+        });
+
+        DiscountedPrice.on('change', function() {
+            FinalPrice.val(BasePrice.val() - this.value);
+        });
+
+
+        getSubCategory();
+        $('#CategoryId').change(function () {
+            getSubCategory();
+        });
+    });
+
+    function getSubCategory() {
+        var url = '@Url.Content("~/")' + "Admin/SubCategories/GetSubCategory";
+        var ddlsource = '#CategoryId';
+        $.getJSON(url, { id: $(ddlsource).val() }, function (data) {
+
+            var items = '';
+            $('#SubCategoryId').empty();
+            $.each(data, function (i, subcategory) {
+
+                items += "<option value='" + subcategory.value +"'>" + subcategory.text + "</option>";
+
+            });
+            $('#SubCategoryId').html(items);
+
+        })
+    }
+
+    </script>
+}

@@ -1,0 +1,30 @@
+﻿[
+  {
+    "outputFile": "wwwroot/css/app.css",
+    "inputFile": "wwwroot/css/app.scss"
+  },
+  {
+    "outputFile": "wwwroot/admin/css/app.css",
+    "inputFile": "wwwroot/admin/css/app.scss"
+  },
+  {
+    "outputFile": "wwwroot/admin/css/admin.css",
+    "inputFile": "wwwroot/admin/css/admin.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/about-us.css",
+    "inputFile": "wwwroot/css/about-us.scss"
+  },
+  {
+    "outputFile": "wwwroot/theme/justin/assets/css/website.css",
+    "inputFile": "wwwroot/theme/justin/assets/css/website.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/custom.css",
+    "inputFile": "wwwroot/css/custom.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/footer.css",
+    "inputFile": "wwwroot/css/footer.scss"
+  }
+]

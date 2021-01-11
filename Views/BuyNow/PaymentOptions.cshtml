@@ -1,0 +1,107 @@
+﻿
+@model BasePackageModule1.Controllers.BuyNowController.APaymentOptions
+<div class="container">
+    <div class="row mt-5 mb-5">
+        <div class="col-md-6 offset-md-2">
+            <h4>Payment Option</h4> 
+            <form class="form" asp-action="PaymentOptions" method="post">
+                <div asp-validation-summary="All" class="text-danger"></div>
+
+                <input type="hidden" asp-for="AddressId" />
+                <input type="hidden" asp-for="ProductId" />
+                <input type="hidden" asp-for="Qty" />
+                <div class="form-check mt-2 mb-2">
+                    <label class="form-check-label">
+                        <input type="radio" value="payOnline" asp-for="PaymentOption" class="form-check-input"> Pay Online
+                    </label>
+                </div>
+
+                <div class="form-check mt-2 mb-2">
+                    <label class="form-check-label">
+                        <input type="radio" value="cashOnDelivery" asp-for="PaymentOption" class="form-check-input"> Cash On Delivery
+                    </label>
+                </div>
+
+                <button id="confirmOrder" type="submit" class="btn btn-primary btn-block">Confirm Order</button>
+            </form>
+        </div>
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title text-center text-primary">Order Summary</h5>
+                    <hr />
+                    <ul class="order-summary">
+                        <li>Items:	  <span class="float-right">₹ @ViewBag.Items</span></li>
+                        <li> Delivery:<span class="float-right">₹ 00</span></li>
+                        <li>Total:	   <span class="float-right">₹ @ViewBag.Items</span></li>
+                        <li>Promotion Applied:	-  <span class="float-right">₹ 00</span></li>
+                        <hr />
+                        <li><h5 class="text-primary">Order Total:<span class="float-right">₹ @ViewBag.Items</span></h5></li>
+                    </ul>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+@section Scripts
+{
+    
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+        var options = {
+            "key": "@Html.DisplayFor(model => model.razorpayKey)", // Enter the Key ID generated from the Dashboard
+            "amount": "@Html.DisplayFor(model => model.amount)", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+            "currency": "@Html.DisplayFor(model => model.currency)",
+            "name": "@Html.DisplayFor(model => model.name)",
+   
+            "image": "https://ustraww.com/img/Logos/c8d7fb2a-d8dc-4e47-8cca-06722918dda8.jpg", // You can give your logo url
+            "order_id": "@Html.DisplayFor(model => model.orderId)",
+            "handler": function (response) {
+
+                console.log(response)
+
+                document.getElementById('rzp_paymentid').value = response.razorpay_payment_id;
+                document.getElementById('rzp_orderid').value = response.razorpay_order_id;
+                document.getElementById('rzp-paymentresponse').click();
+            },
+            "prefill": {
+                "name": "@Html.DisplayFor(model => model.name)",
+                "email": "@Html.DisplayFor(model => model.email)",
+                "contact": "@Model.contactNumber.Replace("+", "")"
+            },
+          
+            "theme": {
+                "color": "#F37254"
+            }
+        };
+        var rzp1 = new Razorpay(options);
+       
+        document.getElementById('confirmOrder').onclick = function (e) {
+            if (document.getElementById('PaymentOption').checked) {
+                rzp1.open();
+                e.preventDefault();
+            }
+        }
+    </script>
+
+}
+
+
+@using (Html.BeginForm("Complete", "BuyNow"))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.Hidden("rzp_paymentid")
+    @Html.Hidden("rzp_orderid")
+    @Html.Hidden("rzp_orderid")
+   <input type="hidden" name="productId" value="@Model.ProductId"/>
+   <input type="hidden" name="qty" value="@Model.Qty"/>
+    
+    <button type="submit" id="rzp-paymentresponse" class="btn btn-primary" hidden>Submit</button>
+}
+
+

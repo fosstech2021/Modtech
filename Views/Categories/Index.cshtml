@@ -1,0 +1,75 @@
+﻿@model X.PagedList.IPagedList<BasePackageModule2.Models.Product>
+@using X.PagedList.Mvc.Core
+
+@if (Model.Any())
+{
+    <div class="container mt-5">
+        <div class="row">
+            <aside class="col-md-9">
+                <partial name="_ItemAreaPartial" model="Model" />
+                <nav class="m-5" style="text-align: center">
+                    @Html.PagedListPager(Model, pageindex => Url.Action("Index", new { pageindex, pageSize = ViewBag.PerPageItems, orderby = ViewBag.orderby }), new X.PagedList.Mvc.Core.Common.PagedListRenderOptions { LiElementClasses = new string[] { "page-item" }, PageClasses = new string[] { "page-link" } })
+                </nav>
+            </aside>
+            <aside class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Price range</h5>
+                        <form method="get">
+                            <input type="text" class="js-range-slider"
+                                   data-type="double"
+                                   data-min="500"
+                                   data-max="20000"
+                                   data-from="@ViewBag.minPrice"
+                                   data-to="@ViewBag.maxPrice"
+                                   data-grid="false" />
+                            <input type="hidden" id="min_price" name="minPrice" value="@ViewBag.minPrice">
+                            <input type="hidden" id="max_price" name="maxPrice" value="@ViewBag.maxPrice">
+
+                            <button type="submit" class="btn btn-block btn-primary mt-4">Apply</button>
+                        </form>
+                    </div>
+                </div>
+                @await Component.InvokeAsync("Category")
+
+
+            </aside>
+        </div>
+    </div>
+}
+else
+{
+    <div class="container mt-5">
+        <div class="row">
+            <aside class="col-md-12">
+                <h3>No Results Found!</h3>
+            </aside>
+        </div>
+    </div>
+}
+@section Styles {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/css/ion.rangeSlider.min.css" />
+
+}
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/js/ion.rangeSlider.min.js"></script>
+
+
+    <script>
+
+        $(".js-range-slider").ionRangeSlider({
+            skin: "big",
+            onStart: function (data) {
+                $('#min_price').val(data.from);
+                $('#max_price').val(data.to);
+            },
+            onChange: function (data) {
+                //console.dir(data);
+                $('#min_price').val(data.from);
+                $('#max_price').val(data.to);
+            }
+        });
+
+    </script>
+}

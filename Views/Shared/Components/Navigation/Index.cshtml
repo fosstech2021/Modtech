@@ -1,0 +1,119 @@
+﻿@model BasePackageModule2.ViewModels.NavViewModel
+@using System.Text.Encodings.Web
+@using Microsoft.AspNetCore.Http
+@using BasePackageModule2.TagHelpers
+@using BasePackageModule2.Utility
+@inject IHttpContextAccessor HttpContextAccessor
+
+<link href="~/theme/justin/assets/css/website.min.css" rel="stylesheet" />
+
+<style>
+    @@media all and (min-width: 992px) {
+        .navbar .nav-item .dropdown-menu {
+            display: block;
+            opacity: 0;
+            visibility: hidden;
+            transition: .3s;
+            margin-top: 0;
+        }
+
+        .navbar .nav-item:hover .nav-link {
+            color: #fff;
+        }
+
+        .navbar .dropdown-menu.fade-down {
+            top: 80%;
+            transform: rotateX(-75deg);
+            transform-origin: 0% 0%;
+        }
+
+        .navbar .dropdown-menu.fade-up {
+            top: 180%;
+        }
+
+        .navbar .nav-item:hover .dropdown-menu {
+            transition: .3s;
+            opacity: 1;
+            visibility: visible;
+            top: 100%;
+            transform: rotateX(0deg);
+        }
+    }
+
+    @@media only screen and (max-width: 360px) {
+        .mobile-viewmenu {
+            display: block;
+        }
+    }
+
+    @@media only screen and (max-width: 2000) {
+        .mobile-viewmenu {
+            display: none;
+        }
+    }
+</style>
+<div class="container-fluid top-bar" style="        background-color: #57606f !important;">
+    <div class="row  ">
+        <div class="col-md-9 col-sm-12 col-lg-9 mr-auto d-lg-block d-none">
+            <span class="hr text-white"><i class="fas fa-phone-alt mr-2 "></i> @Model.BusinessProfile.DisplayContact1</span>
+
+
+
+
+            <span class="hre text-white"><i class="fas fa-paper-plane mr-2 text-white"></i>@Model.BusinessProfile.EmailAddress</span>
+
+        </div>
+
+        <div class="col-md-3 col-sm-12 col-lg-3 small-d-margin">
+            <span class="hr hrl">
+                <a href="@Model.BusinessProfile.FacebookPageURL" style="text-decoration:none;color:#fff;" <i="" class="fab fa-facebook-f"></a>
+            </span>
+            <span class="hr">
+                <a href="@Model.BusinessProfile.InstagramPageURL" style="text-decoration:none;color:#fff;"><i class="fab fa-instagram "></i></a>
+            </span>
+            <span class="hr text-white">
+                <a href="@Model.BusinessProfile.TwitterURL"> <i class="fab fa-twitter "></i></a>
+            </span>
+            <span class="hr text-white">
+                <a href="@Model.BusinessProfile.YoutubeURL"> <i class="fab fa-youtube "></i></a>
+            </span>
+            <span class="hr text-white">
+                <a href="@Model.BusinessProfile.LinkedInURL"><i class="fab fa-linkedin "></i></a>
+            </span>
+        </div>
+    </div>
+</div>
+
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand text-dark" asp-action="Index" asp-controller="Home">Modtech</a>
+    <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#main_nav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="main_nav">
+        <ul class="navbar-nav">
+
+            @foreach (var menu in Model.Menus)
+            {
+                if (menu.Type == "categoryCollection")
+                {
+<li class="nav-item dropdown">
+    <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown"> @menu.Name  </a>
+    <ul class="dropdown-menu">
+        @foreach (var menuCategory in menu.MenuCategories)
+        {
+<li><a class="dropdown-item text-dark" asp-action="Index" asp-controller="Products" asp-route-category="@menuCategory.Category.Name"> @menuCategory.Category.Name</a></li>}
+    </ul>
+</li> }
+                
+                
+                if (menu.Type == "externalLink" || menu.Type == null)
+                {
+<li class="nav-item"><a class="nav-link text-dark" href="@menu.Url"> @menu.Name </a></li>}
+
+            }
+            <li class="nav-item"><a class="nav-link text-dark" href="/theme/justin/assets/Modtech-Products-Catalog.pdf" target="_blank"> Download  </a></li>
+        </ul>
+
+    </div> <!-- navbar-collapse.// -->
+</nav>

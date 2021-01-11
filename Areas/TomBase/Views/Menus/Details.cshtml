@@ -1,0 +1,70 @@
+﻿@model BasePackageModule2.Models.Menu.Menu
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Menu</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Url)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Url)
+        </dd>
+       @if (Model.MenuProducts.Any())
+       {
+           <dt class="col-sm-2">
+               @Html.DisplayNameFor(model => model.MenuProducts)
+           </dt>
+           <dd class="col-sm-10">
+               @foreach (var product in Model.MenuProducts)
+               {
+                   <article class="card">
+                       <div class="row no-gutters">
+                           <aside class="col-md-3">
+                               <div class="mt-3">
+                                   <a class="img-wrap" href="#">
+                                       <img width="200" src="@product.Product.Image" class="img-fluid">
+                                   </a>
+                               </div>
+                           </aside> <!-- col.// -->
+                           <div class="col-md-6">
+                               <div class="mt-3">
+                                   <a href="#" class="h5 title"> @product.Product.Name  </a>
+                                   <!-- rating-wrap.// -->
+
+                                   <p style="line-height:1.6rem;margin-top:20px;">
+                                       @product.Product.Name 
+                                    </p>
+                               </div> <!-- info-main.// -->
+                           </div> <!-- col.// -->
+                           
+                       </div> <!-- row.// -->
+                   </article>
+               }
+           </dd>
+       }
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Order)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Order)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

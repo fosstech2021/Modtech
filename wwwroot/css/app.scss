@@ -1,0 +1,320 @@
+﻿@import "../lib/bootstrap-4.5.0/scss/_functions.scss";
+@import "../lib/bootstrap-4.5.0/scss/_variables.scss";
+$primary-color: #f07d00;
+$theme-colors: ( primary: $primary-color);
+$primary-dark: rgba($primary-color, 0.88);
+$top-bar-bg: #141414;
+$top-bar-color: #fff;
+
+@import "../lib/bootstrap-4.5.0/scss/bootstrap.scss";
+
+
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+.container {
+    max-width: 1310px;
+}
+
+.top-bar {
+    background: $top-bar-bg;
+    color: $top-bar-color;
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 2px;
+        li {
+            display: inline-block;
+            margin-right: 5px;
+        }
+    }
+    a {
+        color: $top-bar-color;
+    }
+}
+
+#navbar {
+    box-shadow: none;
+    background: $primary-color;
+    min-height: 40px;
+    .nav-link {
+        color: #ffffff;
+        font-size: 15px;
+        text-transform: uppercase;
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+    .dropdown-item {
+        display: block;
+        width: 100%;
+        padding: .7rem 1.5rem;
+        clear: both;
+        font-weight: 400;
+        color: #212529;
+        text-align: inherit;
+        white-space: nowrap;
+        background-color: transparent;
+        border: 0;
+        text-transform: capitalize;
+    }
+    .dropdown-item:hover,
+    .dropdown-item:focus {
+        color: $primary-color;
+        text-decoration: none;
+        background-color: rgba($primary-dark, .2);
+    }
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+    color: $primary-color;
+    text-decoration: none;
+    background-color: rgba($primary-dark, .2);
+}
+
+#book-opint {
+    background: $primary-color;
+    .main-tagline {
+        font-size: 22px;
+        color: #ffffff;
+        margin-top: 9px;
+    }
+    a {
+        background: none;
+        border: solid 1px #fff;
+        margin: 5px;
+        padding: 5px;
+        font-size: 17px;
+        -ms-border-radius: 10px;
+        border-radius: 10px;
+        color: #ffffff;
+    }
+}
+
+.main-title {
+    color: $primary-color;
+    text-transform: uppercase;
+    margin: 30px 0;
+}
+
+footer {
+    background: #000;
+    font-style: normal;
+    color: #ffffff;
+    h4 {
+        text-transform: uppercase;
+        color: $primary-color;
+    }
+    a {
+        color: #ffffff;
+        font-size: 18px;
+        margin-left: 5px;
+    }
+    .nav i {
+        font-size: 22px;
+    }
+    a:hover {
+        color: $primary-color;
+    }
+}
+
+.card-read-more {
+    a {
+        text-decoration: none !important;
+        padding-right: 8px;
+        font-weight: 600;
+        text-transform: uppercase;
+        .nav-item a {
+            color: #ffffff;
+            font-size: 15px;
+            text-transform: uppercase;
+            padding: 12px 0;
+        }
+    }
+}
+
+#footerbwrap {
+    text-align: center;
+    padding: 5px;
+    #footerb {
+        border: solid 1px $primary-color;
+        padding: 5px;
+        margin: 5px 0;
+    }
+}
+
+.thumb {
+    margin-bottom: 30px;
+}
+
+img.zoom {
+    width: 100%;
+    height: 200px;
+    border-radius: 5px;
+    object-fit: cover;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+}
+
+.gallery img {
+    padding: 1px;
+    border: solid 1px #f07d00;
+}
+
+.transition {
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+hr {
+    margin: 10px 0;
+    border-color: $primary-color;
+}
+
+.tagline {
+    margin: 30px 0;
+    font-size: 25px;
+}
+
+.left-side-product-box img {
+    max-width: 200px
+}
+
+#header {
+    background: linear-gradient(rgba(14, 9, 9, 0.699), rgba(14, 11, 11, 0.692));
+    padding: 20px 0;
+}
+
+.btn-main {
+    border: solid 1px;
+    border-radius: 10px;
+    /* padding: 7px !important;
+    margin: 5px;*/
+    min-width: 110px;
+    text-align: center;
+}
+
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-collapse {
+        /*        display: inline-block !important;*/
+    }
+    .dropdown-menu.dropdown-menu-right::before {
+        position: absolute;
+        top: -8px;
+        right: 30px;
+        left: auto;
+    }
+    .dropdown-menu::before {
+        display: block;
+        width: 0;
+        height: 0;
+        content: '';
+        border-right: 7px solid transparent;
+        border-bottom: 8px solid #f1f1f1;
+        border-left: 7px solid transparent;
+        position: absolute;
+        top: -8px;
+        left: 30px;
+    }
+    .dropdown-menu.dropdown-menu-right::after {
+        position: absolute;
+        top: -5px;
+        right: 30px;
+        left: auto;
+    }
+    .dropdown-menu::after {
+        display: block;
+        width: 0;
+        height: 0;
+        content: '';
+        border-right: 7px solid transparent;
+        border-bottom: 7px solid #fff;
+        border-left: 7px solid transparent;
+        position: absolute;
+        top: -5px;
+        left: 30px;
+    }
+}
+
+::-moz-selection {
+    /* Code for Firefox */
+    color: #fff;
+    background: $primary-color;
+}
+
+::selection {
+    color: #fff;
+    background: $primary-color;
+}
+
+.auth-list {
+    margin: 0;
+    padding: 0;
+    float: right;
+    li {
+        list-style-type: none;
+        display: inline-block;
+    }
+}
+
+.logo {
+    max-width: 200px;
+    margin-top: 10px;
+    max-height: 100px;
+}
+
+.order-summary {
+    list-style-type: none;
+    padding: 0;
+
+    li {
+        margin: 10px 6px;
+    }
+}
+
+.sidebar {
+    h5 {
+        text-align: center;
+        text-transform: uppercase;
+        color: $primary-color;
+    }
+
+    ul {
+        padding: 0;
+
+        li {
+            border: none;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.125)
+        }
+    }
+}
+
+.basePrice {
+    text-decoration: line-through;
+    font-size: medium;
+}
+
+.discount {
+    font-size: 14px;
+    border: solid 1px $primary-color;
+    border-radius: 5px;
+    padding: 3px 10px;
+}
+.aboutus {
+    img{
+        border: solid 1px $primary-color;
+        float: right;
+    }
+}
+
+
+.home-card {
+    .card-body {
+        padding: 0;
+    }
+}

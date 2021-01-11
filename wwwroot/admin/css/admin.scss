@@ -1,0 +1,212 @@
+﻿@import "../../lib/bootstrap-4.5.0/scss/_functions.scss";
+@import "../../lib/bootstrap-4.5.0/scss/_variables.scss";
+$primary-color: #f07d00;
+
+$theme-colors: ( primary: $primary-color );
+:root {
+    --primary: red;
+}
+
+
+$primary-dark: rgba($primary-color, 0.88);
+$top-bar-bg: #141414;
+$top-bar-color: #fff;
+
+@import "../../lib/bootstrap-4.5.0/scss/bootstrap.scss";
+
+body {
+    font-family: 'Lato', sans-serif;
+}
+.container {
+    max-width: 1310px;
+}
+#navbar {
+    box-shadow: none;
+    background: $primary-color;
+    min-height: 40px;
+
+    .nav-link {
+        color: #ffffff;
+        font-size: 15px;
+        text-transform: uppercase;
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    .dropdown-item {
+        display: block;
+        width: 100%;
+        padding: .7rem 1.5rem;
+        clear: both;
+        font-weight: 400;
+        color: #212529;
+        text-align: inherit;
+        white-space: nowrap;
+        background-color: transparent;
+        border: 0;
+        text-transform: capitalize;
+    }
+
+    .dropdown-item:hover, .dropdown-item:focus {
+        color: $primary-color;
+        text-decoration: none;
+        background-color: rgba($primary-dark, .2);
+    }
+}
+
+
+.main-title {
+    color: $primary-color;
+    text-transform: uppercase;
+    margin: 30px 0;
+}
+
+footer {
+    background: #000;
+    font-style: normal;
+    color: #ffffff;
+
+    h4 {
+        text-transform: uppercase;
+        color: $primary-color;
+    }
+
+    a {
+        color: #ffffff;
+        font-size: 18px;
+        margin-left: 5px;
+    }
+
+    .nav i {
+        font-size: 22px;
+    }
+
+    a:hover {
+        color: $primary-color;
+    }
+}
+
+.update-card {
+    color: #fff;
+}
+
+.bg-c-green {
+    background: -webkit-gradient(linear, left top, right top, from(#0ac282), to(#0df3a3));
+    background: linear-gradient(to right, #0ac282, #0df3a3);
+}
+
+.bg-c-blue {
+    background: -webkit-gradient(linear, left top, right top, from(#01a9ac), to(#01dbdf));
+    background: linear-gradient(to right, #01a9ac, #01dbdf);
+}
+.bg-c-lite-green {
+    background: -webkit-gradient(linear, left top, right top, from(#01a9ac), to(#01dbdf));
+    background: linear-gradient(to right, #01a9ac, #01dbdf);
+}
+.bg-c-yellow {
+    background: -webkit-gradient(linear, left top, right top, from(#fe9365), to(#feb798));
+    background: linear-gradient(to right, #fe9365, #feb798);
+}
+
+.card {
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
+    box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
+    border: none;
+    margin-bottom: 30px;
+}
+
+a:focus, a:hover {
+    text-decoration: none;
+    color: #01a9ac;
+}
+
+.card-block {
+    padding: 1.25rem;
+}
+
+.update-card .card-footer {
+    background-color: transparent;
+    border-top: 1px solid #fff;
+}
+
+.m-b-0 {
+    margin-bottom: 0px;
+}
+
+.f-14 {
+    font-size: 14px;
+}
+
+.m-r-10 {
+    margin-right: 10px;
+}
+
+.form-group.required .control-label:after {
+    content: "*";
+    color: red;
+}
+
+
+.dropdown-divider {
+    height: 0;
+    margin: 0;
+    overflow: hidden;
+    border-top: 1px dashed gray;
+}
+
+.bootstrap-tagsinput .tag {
+    color: $primary-color !important;
+}
+
+.dropdown-menu i {
+    margin-right: 5px;
+}
+
+
+
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-collapse {
+        display: inline-block !important;
+    }
+}
+
+.navbar .dropdown-menu.dropdown-menu-right::before {
+    position: absolute;
+    top: -8px;
+    right: 30px;
+    left: auto;
+}
+
+.navbar .dropdown-menu::before {
+    display: block;
+    width: 0;
+    height: 0;
+    content: '';
+    border-right: 7px solid transparent;
+    border-bottom: 8px solid #f1f1f1;
+    border-left: 7px solid transparent;
+    position: absolute;
+    top: -8px;
+    left: 30px;
+}
+
+.navbar .dropdown-menu.dropdown-menu-right::after {
+    position: absolute;
+    top: -5px;
+    right: 30px;
+    left: auto;
+}
+
+.navbar .dropdown-menu::after {
+    display: block;
+    width: 0;
+    height: 0;
+    content: '';
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid #fff;
+    border-left: 7px solid transparent;
+    position: absolute;
+    top: -5px;
+    left: 30px;
+}

@@ -1,0 +1,130 @@
+﻿.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>@ViewData["Title"] </title>
+
+    @await Component.InvokeAsync("Seo")
+    @await RenderSectionAsync("MetaTags", required: false)
+    <meta name="robots" content="index,follow" />
+    @await Component.InvokeAsync("Favicon")
+    <!-- Vendor Css-->
+    <link rel="stylesheet" href="~/theme/justin/assets/css/vendor.css" asp-append-version="true" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800&display=swap" rel="stylesheet">
+    <!-- Settings-panel -->
+    <link href="~/theme/justin/assets/css/settings.css" rel="stylesheet">
+
+    <!-- Custom style Css -->
+    <link href="~/theme/justin/assets/css/custom.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <!-- JustinTemplate style Css -->
+    <link rel="stylesheet" href="~/theme/justin/assets/css/justin-red.css" asp-append-version="true" >
+    @await RenderSectionAsync("Styles", required: false)
+    <link href="~/theme/justin/assets/css/custom.css" rel="stylesheet" asp-append-version="true"  />
+    <link href="~/css/about-us.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/footer.min.css" asp-append-version="true" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Kufam&family=Playfair+Display&family=Tajawal:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kufam&family=Mukta:wght@200&family=Playfair+Display&family=Tajawal:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kufam&family=Mukta:wght@200&family=Playfair+Display&family=Russo+One&family=Tajawal:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300" rel="stylesheet" />
+    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+</head>
+<body>
+    @*<nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand  mr-auto text-dark " href="@Url.Action("Index","Home")" style="color:#121234;">
+                    USTRAWW - The Pasta Straw
+
+                </a>
+
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+                    <svg class="ham hamRotate ham1" viewBox="0 0 100 100" width="60"><path class="line top" d="m 30,33 h 40 c 0,0 9.044436,-0.654587 9.044436,-8.508902 0,-7.854315 -8.024349,-11.958003 -14.89975,-10.85914 -6.875401,1.098863 -13.637059,4.171617 -13.637059,16.368042 v 40"></path><path class="line middle" d="m 30,50 h 40"></path><path class="line bottom" d="m 30,67 h 40 c 12.796276,0 15.357889,-11.717785 15.357889,-26.851538 0,-15.133752 -4.786586,-27.274118 -16.667516,-27.274118 -11.88093,0 -18.499247,6.994427 -18.435284,17.125656 l 0.252538,40"></path></svg>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarToggler">
+                    <ul class="navbar-nav ml-auto">
+                        <li><a class="nav-link active" href="/Home">Home</a></li>
+                        <li><a class="nav-link active" href="/AboutUs">About Us</a></li>
+                        <li><a class="nav-link active" href="/Products">Products</a></li>
+                        <li><a class="nav-link active" href="/Blog">Blog</a></li>
+                        <li><a class="nav-link active" href="/Gallery">Gallery</a></li>
+                        <li><a class="nav-link active" href="/Home/Contact">Contact</a></li>
+
+                        <partial name="_LoginPartial" />
+
+                    </ul>
+                </div>
+            </div>
+        </nav>*@
+
+
+
+    @await Component.InvokeAsync("Navigation")
+
+
+    <div class="page-wrapper">
+        @RenderBody()
+    </div>
+
+    @await Component.InvokeAsync("Footer")
+
+
+
+    <!-- WhatsHelp.io widget -->
+    @await Component.InvokeAsync("ChatBot")
+    <!-- /WhatsHelp.io widget -->
+
+
+
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v6.0"></script>
+
+    <script src="~/theme/justin/assets/js/vendor.js" asp-append-version="true"></script>
+
+    <!-- Map -->
+    @*<script src="~/theme/justin/assets/js/map.js" asp-append-version="true" ></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD79MY72taVRlZVX2DU6L5PXOh3ezUUKMc&amp;callback=initMap" async="" defer=""></script>*@
+
+    <!-- Contact Js -->
+    <script src="~/theme/justin/assets/js/contact.js" asp-append-version="true"></script>
+
+    <!-- Custom Js -->
+    <script src="~/theme/justin/assets/js/custom.js" asp-append-version="true"></script>
+    
+    @await RenderSectionAsync("Scripts", required: false)
+
+
+    @if (TempData["_alert.type"] != null)
+    {
+        <script src="~/lib/notify/notify.min.js"></script>
+
+        <script>
+            $( document ).ready(function() {
+                $.notify('@TempData["_alert.title"]', '@TempData["_alert.type"]');
+            });
+
+        </script>
+    }
+
+
+    <script src="https://vjs.zencdn.net/7.8.4/video.js"></script>
+    <script>
+        var video = $('video')[0];
+        $('button').click(function () {
+            if (video.paused) {
+                video.play();
+            }
+            else {
+                video.pause();
+            }
+        });
+    </script>
+    
+</body>
+</html>

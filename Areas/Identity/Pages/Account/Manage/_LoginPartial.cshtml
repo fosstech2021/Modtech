@@ -1,0 +1,56 @@
+﻿@using BasePackageModule2.Models
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@using Microsoft.AspNetCore.Http
+@using BasePackageModule2.Utility
+@using Microsoft.EntityFrameworkCore
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{
+
+    var user = await UserManager.Users.Include(a => a.Cart).FirstOrDefaultAsync(a => a.Id == UserManager.GetUserId(User));
+
+}
+<ul class="auth-list">
+
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <li class=" dropdown">
+            <a class="nav-link dropdown-toggle text-primary" asp-area="Identity" asp-page="/Account/Manage/Index" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Hi! @user.FullName<i class="fa fa-user pl-1"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                @if (user.Id != null && await UserManager.IsInRoleAsync(user, "Admin"))
+                {
+                    <a class="dropdown-item" asp-area="TomBase" asp-controller="TomBase" asp-action="Index">Admin Panel</a>
+                }
+                <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index">My Account</a>
+                <a class="dropdown-item" asp-area="" asp-controller="Orders" asp-action="Index">My Orders</a>
+                <a href="#" class="dropdown-item" onclick="document.getElementById('logout').submit();return false;">Logout</a>
+                <form id="logout" class="d-none" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new {area = ""})" method="post">
+                    <button type="submit" class="nav-link btn btn-link dropdown-item">Logout</button>
+                </form>
+            </div>
+        </li>
+
+        <li class="">
+            <a class="nav-link text-primary" asp-area="" asp-controller="Cart" asp-action="Index">
+                <i class="fa fa-shopping-cart"></i>&nbsp;(@user.Cart.Count())
+            </a>
+        </li>
+
+    }
+    else
+    {
+
+        <li class="">
+            <a class="nav-link btn-primary btn-main" asp-area="Identity" asp-page="/Account/Register">Register</a>
+        </li>
+        <li class="">
+            <a class="nav-link btn-primary btn-main" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        </li>
+
+    }
+
+</ul>

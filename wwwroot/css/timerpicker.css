@@ -1,0 +1,25 @@
+.ui-timepicker-list {
+    list-style-type: none;
+    text-indent: 2em;
+    width: 12em;
+    height: 20em;
+    line-height: 2em;
+    border: 1px solid #ccc;
+    padding: 0;
+    margin: 0;
+    overflow: scroll;
+    overflow-x: hidden;
+    background-color: gainsboro;
+    color: black;
+}
+
+.ui-timepicker-list .ui-timepicker-am {
+  cursor: pointer;
+  border-top: 1px solid #ccc;
+}
+
+.ui-timepicker-list .ui-timepicker-pm {
+  cursor: pointer;
+  border-top: 1px solid #ccc;
+}
+/*# sourceMappingURL=timerpicker.css.map */

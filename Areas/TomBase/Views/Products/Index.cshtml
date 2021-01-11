@@ -1,0 +1,147 @@
+﻿@model IEnumerable<BasePackageModule2.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="col-sm-12">
+    <!-- Zero config.table start -->
+    <div class="card">
+        <div class="card-header">
+            <h5>Products</h5>
+            <a class="btn btn-primary float-right" asp-action="Create">Create New</a>
+        </div>
+        <div class="card-block">
+            <div class="dt-responsive table-responsive">
+                <table id="simpletable" class="table table-striped table-bordered nowrap">
+                    <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Image)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.Category)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SubCategory)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FinalPrice)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Status)
+                        </th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <img width="200" src="@Html.DisplayFor(modelItem => item.Image)" alt="@item.Name" />
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Category.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SubCategory.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FinalPrice)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Status)
+                            </td>
+                            <td
+                                class="dropdown">
+                                <button type="button" class="btn btn-primary dropdown-toggle" id="dropdownMenuButton-@item.Id" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cog" aria-hidden="true"></i></button>
+                                <div class="dropdown-menu dropdown-menu-right" x-placement="top-end" aria-labelledby="dropdownMenuButton-@item.Id">
+                                    <a class="dropdown-item text-primary" asp-action="Details" asp-route-id="@item.Id"><i class="icofont icofont-eye-alt"></i>View</a>
+                                    <a class="dropdown-item text-success" asp-action="Edit" asp-route-id="@item.Id"><i class="icofont icofont-edit"></i>Edit</a>
+                                    <a class="dropdown-item text-danger" asp-action="Delete" asp-route-id="@item.Id"><i class="icofont icofont-ui-delete"></i>Delete</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+@section styles {
+    <link rel="stylesheet" type="text/css" href="/lib/DataTables/DataTables-1.10.20/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="/lib/DataTables/Buttons-1.6.1/css/buttons.dataTables.min.css" />
+}
+
+@section Scripts {
+    <script type="text/javascript" src="/lib/DataTables/DataTables-1.10.20/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="/lib/DataTables/JSZip-2.5.0/jszip.min.js"></script>
+    <script type="text/javascript" src="/lib/DataTables/Buttons-1.6.1/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="/lib/DataTables/pdfmake-0.1.36/pdfmake.min.js"></script>
+    <script type="text/javascript" src="/lib/DataTables/pdfmake-0.1.36/vfs_fonts.js"></script>
+    <script type="text/javascript" src="/lib/DataTables/Buttons-1.6.1/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="/lib/DataTables/Buttons-1.6.1/js/buttons.print.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#simpletable').DataTable({
+                dom: 'lBfrtip',
+                buttons: [{
+                        extend: 'pdf',
+                        title: 'items',
+                        filename: "@DateTime.Now.ToFileTime()",
+                        exportOptions: {
+                            columns: [ 0, 1, 2]
+                        }
+                    }, {
+                        extend: 'excel',
+                        title: 'items',
+                        filename: "@DateTime.Now.ToFileTime()",
+                        exportOptions: {
+                            columns: [ 0, 1, 2]
+                        }
+                    }, {
+                        extend: 'csv',
+                        title: 'items',
+                        filename: "@DateTime.Now.ToFileTime()",
+                        exportOptions: {
+                            columns: [ 0, 1, 2]
+                        }
+                    },
+                    {
+                        extend: 'print',
+                        title: 'items',
+                        filename: "@DateTime.Now.ToFileTime()",
+                        exportOptions: {
+                            columns: [ 0, 1, 2]
+                        }
+                    }],
+                "order": [],
+                "columnDefs": [ {
+                    "targets"  : 'no-sort',
+                    "orderable": false,
+                }],
+
+            });
+
+        });
+
+    </script>
+}

@@ -1,0 +1,56 @@
+﻿@model IEnumerable<BasePackageModule2.Models.Image>
+<section id="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-sm-12">
+                <h1 class="text-center text-white text-uppercase">Gallery</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container my-5">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb mb-4">
+                <a href="@Url.Content(item.Img)" class="fancybox" rel="ligthbox">
+                    <img src="@Url.Content(item.Img)" class="zoom img-fluid " alt="">
+
+                </a>
+            </div>
+        }
+
+    </div>
+</div>
+
+
+@section Styles
+{
+    <link rel="stylesheet" href="~/lib/ekko-lightbox/ekko-lightbox.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+}
+
+@section Scripts
+{
+    <script src="~/lib/ekko-lightbox/ekko-lightbox.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".fancybox").fancybox({
+                openEffect: "none",
+                closeEffect: "none"
+            });
+
+            $(".zoom").hover(function () {
+
+                $(this).addClass('transition');
+            }, function () {
+
+                $(this).removeClass('transition');
+            });
+        });
+
+    </script>
+}

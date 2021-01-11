@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Category>
+
+
+<div class="card my-5">
+    <div class="card-body">
+        <h5 class="card-title">Categories</h5>
+        <hr />
+        <ul class="list-group">
+            @foreach (var category in Model)
+            {
+                <li class="list-group-item">
+                    <a asp-controller="Products" asp-action="Index" asp-route-category="@category.Name">@category.Name (@category.Products.Count)</a>
+                    @if (category.SubCategories.Count > 0)
+                    {
+                        <ul class="list-group">
+                            @foreach (var child in category.SubCategories)
+                            {
+                                <li class="list-group-item"><a asp-controller="Categories" asp-action="Index" asp-route-id="@child.Id" >@child.Name (@child.Products.Count)</a></li>
+                            }
+                        </ul>
+                    }
+                </li>
+            }
+               
+        </ul>
+    </div>
+</div>
+

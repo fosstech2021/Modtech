@@ -1,0 +1,59 @@
+﻿@page "{id:int}"
+@using BasePackageModule2.Models
+@model BasePackageModule1.Areas.Identity.Pages.Account.Manage.EditAddressModel
+<div class="container">
+    
+    <form method="post">
+        <input asp-for="Address.Id" type="hidden" />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        
+        <div class="form-group">
+            <label asp-for="Address.Name" class="control-label"></label>
+            <input asp-for="Address.Name" class="form-control" />
+            <span asp-validation-for="Address.Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Address.MobileNumber" class="control-label"></label>
+            <input asp-for="Address.MobileNumber" class="form-control" />
+            <span asp-validation-for="Address.MobileNumber" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Address.PinCode" class="control-label"></label>
+            <input asp-for="Address.PinCode" class="form-control" />
+            <span asp-validation-for="Address.PinCode" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Address.Locality" class="control-label"></label>
+            <input asp-for="Address.Locality" class="form-control" />
+            <span asp-validation-for="Address.Locality" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Address.MainAddress" class="control-label"></label>
+            <input asp-for="Address.MainAddress" class="form-control" />
+            <span asp-validation-for="Address.MainAddress" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Address.City" class="control-label"></label>
+            <input asp-for="Address.City" class="form-control" />
+            <span asp-validation-for="Address.City" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Address.State" class="control-label"></label>
+            <input asp-for="Address.State" class="form-control" />
+            <span asp-validation-for="Address.State" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Address.Landmark" class="control-label"></label>
+            <input asp-for="Address.Landmark" class="form-control" />
+            <span asp-validation-for="Address.Landmark" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Address.AlternatePhone" class="control-label"></label>
+            <input asp-for="Address.AlternatePhone" class="form-control" />
+            <span asp-validation-for="Address.AlternatePhone" class="text-danger"></span>
+        </div>
+        <br />
+        <input type="submit" value="Save" class="btn btn-primary" />
+        
+    </form>
+</div>

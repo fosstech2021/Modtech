@@ -1,0 +1,13 @@
+﻿@using BasePackageModule2.Areas.Identity.Pages.Account.Manage
+@using BasePackageModule2.Models
+@inject SignInManager<ApplicationUser> SignInManager
+@{
+    var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
+}
+<ul class="nav nav-pills flex-column">
+    <li class="nav-item"><a style="border-radius:0px;" class="nav-link text-start @ManageNavPages.IndexNavClass(ViewContext)" id="profile" asp-page="./Index">Profile</a></li>
+    <li class="nav-item"><a style="border-radius:0px;" class="nav-link text-start @ManageNavPages.EmailNavClass(ViewContext)" id="email" asp-page="./Email">Email</a></li>
+    <li class="nav-item"><a style="border-radius:0px;" class="nav-link text-start @ManageNavPages.AddressNavClass(ViewContext)" id="address" asp-page="./Address">Address</a></li>
+    <li class="nav-item"><a style="border-radius:0px;" class="nav-link text-start @ManageNavPages.ChangePasswordNavClass(ViewContext)" id="change-password" asp-page="./ChangePassword">Password</a></li>
+  
+</ul>

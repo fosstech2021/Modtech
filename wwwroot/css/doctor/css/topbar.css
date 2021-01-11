@@ -1,0 +1,32 @@
+#top-bar {
+  border-bottom: 1px solid #dfdfdf;
+  padding: 18px 0 0;
+}
+
+#top-bar .barnd .brand-name {
+  font-family: 'Roboto Slab', serif;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 34px;
+}
+
+#top-bar .time .d-flex .bd-highlight .far {
+  font-size: 40px;
+  color: #77B3D0;
+}
+
+#top-bar .time .d-flex .bd-highlight .fas {
+  font-size: 40px;
+  color: #77B3D0;
+}
+
+#top-bar .time .d-flex .bd-highlight .time-icon {
+  font-size: 14px;
+  margin: 0 0 3px;
+}
+
+#top-bar .time .d-flex .bd-highlight .text-time {
+  color: rgba(68, 68, 68, 0.4);
+  font-size: 13px;
+}
+/*# sourceMappingURL=topbar.css.map */
